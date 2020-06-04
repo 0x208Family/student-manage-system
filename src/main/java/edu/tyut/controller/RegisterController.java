@@ -7,6 +7,7 @@ import edu.tyut.bean.mgb.Student;
 import edu.tyut.bean.mgb.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -76,13 +77,13 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping("/save_student")
-    public String saveStudent(Student student) {
+    public String saveStudent(Student student, BindingResult result) {
         return null;
     }
 
     @ResponseBody
     @RequestMapping("/save_teacher")
-    public String saveTeacher(Teacher teacher) {
+    public String saveTeacher(Teacher teacher, BindingResult result) {
         return null;
     }
 }

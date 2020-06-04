@@ -22,7 +22,7 @@
     <result column="city" jdbcType="VARCHAR" property="city" />
     <result column="county" jdbcType="VARCHAR" property="county" />
     <result column="address_detail" jdbcType="VARCHAR" property="addressDetail" />
-    <result column="register_captcha" jdbcType="VARCHAR" property="registerCaptcha" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -99,7 +99,7 @@
       This element was generated on Mon Jun 01 14:23:16 CST 2020.
     -->
     id, teacher_id, name, identity_num, sex, academy, political_status, nation, password, 
-    phone, ethnic, province, city, county, address_detail, register_captcha
+    phone, ethnic, province, city, county, address_detail, remark
   </sql>
   <select id="selectByExample" parameterType="edu.tyut.bean.mgb.TeacherExample" resultMap="BaseResultMap">
     <!--
@@ -142,7 +142,7 @@
       political_status, nation, password, 
       phone, ethnic, province, 
       city, county, address_detail, 
-      register_captcha)
+      remark)
     values (#{id,jdbcType=INTEGER}, #{teacherId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{identityNum,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{academy,jdbcType=VARCHAR}, 
       #{politicalStatus,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
@@ -204,7 +204,7 @@
         address_detail,
       </if>
       <if test="registerCaptcha != null">
-        register_captcha,
+        remark,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -324,7 +324,7 @@
         address_detail = #{record.addressDetail,jdbcType=VARCHAR},
       </if>
       <if test="record.registerCaptcha != null">
-        register_captcha = #{record.registerCaptcha,jdbcType=VARCHAR},
+        remark = #{record.registerCaptcha,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -353,7 +353,7 @@
       city = #{record.city,jdbcType=VARCHAR},
       county = #{record.county,jdbcType=VARCHAR},
       address_detail = #{record.addressDetail,jdbcType=VARCHAR},
-      register_captcha = #{record.registerCaptcha,jdbcType=VARCHAR}
+      remark = #{record.registerCaptcha,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

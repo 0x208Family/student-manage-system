@@ -9,6 +9,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 
 import java.util.HashMap;
 import java.util.List;
@@ -74,6 +75,13 @@ public class RegisterAspect {
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
     public String registerVerify(ProceedingJoinPoint pjp) {
         RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
+        BindingResult result = (BindingResult) pjp.getArgs()[1];
+
+        // assume data
+        if (result.hasErrors()) {
+            System.out.println("form data has errors");
+            return "false";
+        }
         System.out.println(obj);
         // save to database
 //        if (obj.getClass() == Teacher.class) {
