@@ -1,6 +1,6 @@
 package edu.tyut.controller;
 
-import edu.tyut.bean.mgb.ManagerLogin;
+import edu.tyut.bean.mgb.Manager;
 import edu.tyut.bean.mgb.Student;
 import edu.tyut.bean.mgb.Teacher;
 import org.springframework.stereotype.Controller;
@@ -27,7 +27,7 @@ public class LoginController {
     }
 
     @RequestMapping("/man_home")
-    public String check(ManagerLogin manager) {
+    public String check(Manager manager) {
         return null;
     }
 }

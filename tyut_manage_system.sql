@@ -107,7 +107,7 @@ CREATE TABLE score
 ) CHARACTER SET utf8;
 
 # 管理员登录
-CREATE TABLE manager_login
+CREATE TABLE manager
 (
     id       int AUTO_INCREMENT PRIMARY KEY,
     name     varchar(10),
