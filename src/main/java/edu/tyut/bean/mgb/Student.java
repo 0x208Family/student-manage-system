@@ -1,14 +1,14 @@
 package edu.tyut.bean.mgb;
 
 import edu.tyut.bean.LoginInformation;
-import edu.tyut.bean.RegisterBasicInformation;
+import edu.tyut.bean.RegisterInformation;
 import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @ToString
-public class Student implements RegisterBasicInformation, LoginInformation, Serializable {
+public class Student implements RegisterInformation, LoginInformation, Serializable {
 
     private static final int KEY_LENGTH = 10;
 

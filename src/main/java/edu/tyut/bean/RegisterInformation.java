@@ -1,6 +1,6 @@
 package edu.tyut.bean;
 
-public interface RegisterBasicInformation {
+public interface RegisterInformation {
 
     // location
     String getProvince();

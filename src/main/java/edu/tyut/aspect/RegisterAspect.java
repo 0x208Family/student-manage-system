@@ -1,6 +1,6 @@
 package edu.tyut.aspect;
 
-import edu.tyut.bean.RegisterBasicInformation;
+import edu.tyut.bean.RegisterInformation;
 import edu.tyut.bean.mgb.*;
 import edu.tyut.service.*;
 
@@ -49,7 +49,7 @@ public class RegisterAspect {
     @Around("execution(* edu.tyut.controller.RegisterController.*Verify(..))")
     public Map<String, Boolean> idVerify(ProceedingJoinPoint pjp) {
         Map<String, Boolean> map = new HashMap<>();
-        RegisterBasicInformation obj = (RegisterBasicInformation) pjp.getArgs()[0];
+        RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
         System.out.println(obj);
 
         // verify threshold
@@ -73,7 +73,7 @@ public class RegisterAspect {
 
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
     public String registerVerify(ProceedingJoinPoint pjp) {
-        RegisterBasicInformation obj = (RegisterBasicInformation) pjp.getArgs()[0];
+        RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
         System.out.println(obj);
         // save to database
 //        if (obj.getClass() == Teacher.class) {
