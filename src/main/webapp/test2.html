@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Modal</title>
+
+    <script type="text/javascript" src="jquery/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+    <select id="test">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+    </select>
+    <button id="add">Add</button>
+
+
+    <script type="text/javascript">
+        $(function () {
+            var obj = $('#test')
+            obj.change(function () {
+                var text = obj.find('option:selected').text();
+                var index = obj.get(0).selectedIndex;
+                // var index = $('test').get(0).selectedIndex;
+                alert(text + "--->" + index);
+            });
+
+            $('#add').click(function () {
+                alert("hello" + (1 + 2));
+            })
+        })
+    </script>
+</body>
+</html>
