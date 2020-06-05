@@ -12,7 +12,7 @@ import java.util.List;
 @Service("ethnicService")
 public class EthnicServiceImpl implements EthnicService {
 
-    private EthnicMapper ethnicMapper;
+    private final EthnicMapper ethnicMapper;
 
     public EthnicServiceImpl(EthnicMapper ethnicMapper) {
         this.ethnicMapper = ethnicMapper;
@@ -21,5 +21,15 @@ public class EthnicServiceImpl implements EthnicService {
     @Override
     public List<Ethnic> selectEthnic() {
         return ethnicMapper.selectByExample(null);
+    }
+
+    @Override
+    public void clearCriteria() {
+
+    }
+
+    @Override
+    public void createCriteria() {
+
     }
 }

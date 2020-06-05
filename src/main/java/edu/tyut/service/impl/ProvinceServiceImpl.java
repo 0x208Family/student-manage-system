@@ -14,7 +14,9 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     private final ProvinceMapper provinceMapper;
 
-    private ProvinceExample pe = new ProvinceExample();
+    private final ProvinceExample pe = new ProvinceExample();
+
+    private ProvinceExample.Criteria pc;
 
     public ProvinceServiceImpl(ProvinceMapper provinceMapper) {
         this.provinceMapper = provinceMapper;
@@ -27,13 +29,21 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public Province selectById(Integer id) {
-        pe.clear();
-        ProvinceExample.Criteria pc = pe.createCriteria();
         pc.andProvinceIdEqualTo(id);
         List<Province> res = provinceMapper.selectByExample(pe);
         if (res.size() != 0) {
             return res.get(0);
         }
         return null;
+    }
+
+    @Override
+    public void clearCriteria() {
+        pe.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+        pc = pe.createCriteria();
     }
 }

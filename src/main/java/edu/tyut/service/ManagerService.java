@@ -1,4 +1,4 @@
 package edu.tyut.service;
 
-public interface ManagerService {
+public interface ManagerService extends CriteriaHelper {
 }

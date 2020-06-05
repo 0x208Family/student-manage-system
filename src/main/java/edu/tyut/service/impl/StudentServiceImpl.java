@@ -4,7 +4,6 @@ import edu.tyut.bean.mgb.Student;
 import edu.tyut.bean.mgb.StudentExample;
 import edu.tyut.dao.StudentMapper;
 import edu.tyut.service.StudentService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,14 +11,15 @@ import java.util.List;
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
 
-    private StudentMapper studentMapper;
+    private final StudentMapper studentMapper;
 
-    private StudentExample se = new StudentExample();
+    private final StudentExample se = new StudentExample();
+
+    private StudentExample.Criteria sc;
 
     public StudentServiceImpl(StudentMapper studentMapper) {
         this.studentMapper = studentMapper;
     }
-
 
     @Override
     public int insert(Student student) {
@@ -28,29 +28,35 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int delete(String studentId) {
-        se.clear();
-        StudentExample.Criteria sc = se.createCriteria();
         sc.andStudentIdEqualTo(studentId);
         return studentMapper.deleteByExample(se);
     }
 
     @Override
     public int update(Student student) {
-        se.clear();
-        StudentExample.Criteria sc = se.createCriteria();
         sc.andStudentIdEqualTo(student.getStudentId());
         return studentMapper.updateByExample(student, se);
     }
 
     @Override
     public Student selectById(String studentId) {
-        se.clear();
-        StudentExample.Criteria sc = se.createCriteria();
         sc.andStudentIdEqualTo(studentId);
         List<Student> res = studentMapper.selectByExample(se);
         if (res.size() != 0) {
             return res.get(0);
         }
         return null;
+    }
+
+    @Override
+    public void clearCriteria() {
+        System.out.println("执行清理工作");
+        se.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+        System.out.println("创建Criteria");
+        sc = se.createCriteria();
     }
 }

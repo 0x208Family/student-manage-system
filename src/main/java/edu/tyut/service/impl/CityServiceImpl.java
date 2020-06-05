@@ -11,9 +11,11 @@ import java.util.List;
 @Service("cityService")
 public class CityServiceImpl implements CityService {
 
-    public final CityExample ce = new CityExample();
+    private final CityExample ce = new CityExample();
 
     private final CityMapper cityMapper;
+
+    private CityExample.Criteria cc;
 
     public CityServiceImpl(CityMapper cityMapper) {
         this.cityMapper = cityMapper;
@@ -21,8 +23,6 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public City selectCityByCode(String code) {
-        ce.clear();
-        CityExample.Criteria cc = ce.createCriteria();
         cc.andCityCodeEqualTo(code);
         List<City> res = cityMapper.selectByExample(ce);
         if (res.size() != 0) {
@@ -33,8 +33,6 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public City selectCityByProvinceCodeAndCityName(String code, String name) {
-        ce.clear();;
-        CityExample.Criteria cc = ce.createCriteria();
         cc.andProvinceCodeEqualTo(code);
         cc.andCityNameEqualTo(name);
         List<City> res = cityMapper.selectByExample(ce);
@@ -46,8 +44,6 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public List<City> selectCities(String provinceCode) {
-        ce.clear();
-        CityExample.Criteria cc = ce.createCriteria();
         cc.andProvinceCodeEqualTo(provinceCode);
         return cityMapper.selectByExample(ce);
     }
@@ -65,5 +61,16 @@ public class CityServiceImpl implements CityService {
     @Override
     public int update(City city) {
         return 0;
+    }
+
+    @Override
+    public void clearCriteria() {
+        System.out.println("============= clearCriteria city =============");
+        ce.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+        cc = ce.createCriteria();
     }
 }

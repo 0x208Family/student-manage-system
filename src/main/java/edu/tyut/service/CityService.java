@@ -4,7 +4,7 @@ import edu.tyut.bean.mgb.City;
 
 import java.util.List;
 
-public interface CityService {
+public interface CityService extends CriteriaHelper {
 
     City selectCityByCode(String code);
 

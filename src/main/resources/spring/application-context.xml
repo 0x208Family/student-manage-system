@@ -26,6 +26,8 @@
     <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
   </context:component-scan>
 
+  <aop:aspectj-autoproxy/>
+
   <!-- c3p0 data source -->
   <bean id="c3p0-dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
     <property name="user" value="${jdbc.username}"/>
@@ -55,15 +57,27 @@
     <property name="dataSource" ref="c3p0-dataSource"/>
   </bean>
   <aop:config>
-    <aop:pointcut id="pointcut" expression="execution(* edu.tyut.service.impl.*.*(..))"/>
+    <aop:pointcut id="pointcut" expression="execution(* edu.tyut.service.impl.*.delete*(..))"/>
     <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="pointcut"/>
   </aop:config>
 
+  <aop:config>
+    <aop:pointcut id="update" expression="execution(* edu.tyut.service.impl.*.update*(..))"/>
+    <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="update"/>
+  </aop:config>
+
+  <aop:config>
+    <aop:pointcut id="insert" expression="execution(* edu.tyut.service.impl.*.insert*(..))"/>
+    <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="insert"/>
+  </aop:config>
+
   <!-- configuration transaction advisor -->
-  <tx:advice id="transactionInterceptor" transaction-manager="transactionManager">
+  <tx:advice id="transactionInterceptor">
     <tx:attributes>
-      <tx:method name="*" rollback-for="java.lang.Exception"/>
-      <tx:method name="get*" read-only="true"/>
+      <tx:method name="select*" read-only="true"/>
+      <tx:method name="delete*" rollback-for="java.lang.Exception"/>
+      <tx:method name="update*" rollback-for="java.lang.Exception"/>
+      <tx:method name="insert*" rollback-for="java.lang.Exception"/>
     </tx:attributes>
   </tx:advice>
   <!-- ============ transaction configuration end ================ -->

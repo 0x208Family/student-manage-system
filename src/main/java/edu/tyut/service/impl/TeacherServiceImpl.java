@@ -11,14 +11,15 @@ import java.util.List;
 @Service("teacherService")
 public class TeacherServiceImpl implements TeacherService {
 
-    private TeacherMapper teacherMapper;
+    private final TeacherMapper teacherMapper;
 
-    private TeacherExample te = new TeacherExample();
+    private final TeacherExample te = new TeacherExample();
+
+    private TeacherExample.Criteria tc;
 
     public TeacherServiceImpl(TeacherMapper teacherMapper) {
         this.teacherMapper = teacherMapper;
     }
-
 
     @Override
     public int insert(Teacher teacher) {
@@ -27,28 +28,33 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public int delete(String teacherId) {
-        te.clear();
-        TeacherExample.Criteria tc = te.createCriteria();
         tc.andTeacherIdEqualTo(teacherId);
         return teacherMapper.deleteByExample(te);
     }
 
     @Override
     public int update(Teacher teacher) {
-        te.clear();
-        TeacherExample.Criteria tc = te.createCriteria();
         tc.andTeacherIdEqualTo(teacher.getTeacherId());
         return teacherMapper.updateByExample(teacher, te);
     }
 
     @Override
     public Teacher selectById(String teacherId) {
-        te.clear();
-        TeacherExample.Criteria tc = te.createCriteria();
+        tc.andTeacherIdEqualTo(teacherId);
         List<Teacher> res = teacherMapper.selectByExample(te);
         if (res.size() != 0) {
             return res.get(0);
         }
         return null;
+    }
+
+    @Override
+    public void clearCriteria() {
+        te.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+        tc = te.createCriteria();
     }
 }

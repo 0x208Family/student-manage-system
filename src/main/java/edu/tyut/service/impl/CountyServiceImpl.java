@@ -12,20 +12,30 @@ import java.util.List;
 @Service("countyService")
 public class CountyServiceImpl implements CountyService {
 
-    private CountyMapper countyMapper;
+    private final CountyMapper countyMapper;
 
-    private CountyExample ce = new CountyExample();
+    private final CountyExample ce = new CountyExample();
+
+    private CountyExample.Criteria cc;
 
     public CountyServiceImpl(CountyMapper countyMapper) {
         this.countyMapper = countyMapper;
     }
 
-
     @Override
     public List<County> selectCounties(String cityCode) {
-        ce.clear();
-        CountyExample.Criteria cc = ce.createCriteria();
         cc.andCityCodeEqualTo(cityCode);
         return countyMapper.selectByExample(ce);
+    }
+
+    @Override
+    public void clearCriteria() {
+        System.out.println("============== clearCriteria county ================");
+        ce.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+        cc = ce.createCriteria();
     }
 }

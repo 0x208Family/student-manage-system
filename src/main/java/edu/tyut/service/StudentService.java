@@ -2,9 +2,7 @@ package edu.tyut.service;
 
 import edu.tyut.bean.mgb.Student;
 
-import java.util.List;
-
-public interface StudentService {
+public interface StudentService extends CriteriaHelper {
 
     int insert(Student student);
 

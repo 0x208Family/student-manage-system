@@ -4,7 +4,7 @@ import edu.tyut.bean.mgb.PoliticalStatus;
 
 import java.util.List;
 
-public interface PoliticalStatusService {
+public interface PoliticalStatusService extends CriteriaHelper {
 
     List<PoliticalStatus> selectPoliticalStatus();
 }

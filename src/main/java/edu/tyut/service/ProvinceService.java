@@ -4,7 +4,7 @@ import edu.tyut.bean.mgb.Province;
 
 import java.util.List;
 
-public interface ProvinceService {
+public interface ProvinceService extends CriteriaHelper {
 
     List<Province> selectProvinces();
 

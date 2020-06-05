@@ -12,9 +12,9 @@ import java.util.List;
 @Service("politicalStatusService")
 public class PoliticalStatusServiceImpl implements PoliticalStatusService {
 
-    private PoliticalStatusMapper politicalStatusMapper;
+    private final PoliticalStatusMapper politicalStatusMapper;
 
-    private PoliticalStatusExample pe = new PoliticalStatusExample();
+    private final PoliticalStatusExample pe = new PoliticalStatusExample();
 
     public PoliticalStatusServiceImpl(PoliticalStatusMapper politicalStatusMapper) {
         this.politicalStatusMapper = politicalStatusMapper;
@@ -23,5 +23,15 @@ public class PoliticalStatusServiceImpl implements PoliticalStatusService {
     @Override
     public List<PoliticalStatus> selectPoliticalStatus() {
         return politicalStatusMapper.selectByExample(null);
+    }
+
+    @Override
+    public void clearCriteria() {
+        pe.clear();
+    }
+
+    @Override
+    public void createCriteria() {
+
     }
 }

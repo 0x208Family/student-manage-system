@@ -2,7 +2,7 @@ package edu.tyut.service;
 
 import edu.tyut.bean.mgb.Teacher;
 
-public interface TeacherService {
+public interface TeacherService extends CriteriaHelper {
 
     int insert(Teacher teacher);
 
