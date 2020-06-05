@@ -13,59 +13,59 @@
        http://www.springframework.org/schema/tx
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!-- ================= base configuration ================= -->
+  <!-- ================= base configuration ================= -->
 
-    <!-- loading external database properties file -->
-    <context:property-placeholder location="classpath:properties/db-config.properties"/>
+  <!-- loading external database properties file -->
+  <context:property-placeholder location="classpath:properties/db-config.properties"/>
 
-    <!--
-        In addition to the Controller required by SpringMVC, all other business logic
-        components should be scanned into the IOC container
-     -->
-    <context:component-scan base-package="edu.tyut">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+  <!--
+      In addition to the Controller required by SpringMVC, all other business logic
+      components should be scanned into the IOC container
+   -->
+  <context:component-scan base-package="edu.tyut">
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
 
-    <!-- c3p0 data source -->
-    <bean id="c3p0-dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-        <property name="user" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="driverClass" value="${jdbc.driver}"/>
-        <property name="jdbcUrl" value="${jdbc.url}"/>
-        <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
-        <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
-        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
-    </bean>
+  <!-- c3p0 data source -->
+  <bean id="c3p0-dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+    <property name="user" value="${jdbc.username}"/>
+    <property name="password" value="${jdbc.password}"/>
+    <property name="driverClass" value="${jdbc.driver}"/>
+    <property name="jdbcUrl" value="${jdbc.url}"/>
+    <property name="initialPoolSize" value="${jdbc.initialPoolSize}"/>
+    <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
+    <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+  </bean>
 
-    <!-- sql session factory object -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="c3p0-dataSource"/>
-        <property name="mapperLocations" value="classpath:edu/tyut/dao/mappers/*.xml"/>
-        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
-    </bean>
+  <!-- sql session factory object -->
+  <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="c3p0-dataSource"/>
+    <property name="mapperLocations" value="classpath:edu/tyut/dao/mappers/*.xml"/>
+    <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+  </bean>
 
-    <!-- mapper interface scanner -->
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="edu.tyut.dao"/>
-    </bean>
-    <!-- ================= base configuration end ================= -->
+  <!-- mapper interface scanner -->
+  <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="edu.tyut.dao"/>
+  </bean>
+  <!-- ================= base configuration end ================= -->
 
-    <!-- ========== transaction manager ============ -->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="c3p0-dataSource"/>
-    </bean>
-    <aop:config>
-        <aop:pointcut id="pointcut" expression="execution(* edu.tyut.service.*.*(..))"/>
-        <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="pointcut"/>
-    </aop:config>
+  <!-- ========== transaction manager ============ -->
+  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <property name="dataSource" ref="c3p0-dataSource"/>
+  </bean>
+  <aop:config>
+    <aop:pointcut id="pointcut" expression="execution(* edu.tyut.service.impl.*.*(..))"/>
+    <aop:advisor advice-ref="transactionInterceptor" pointcut-ref="pointcut"/>
+  </aop:config>
 
-    <!-- configuration transaction advisor -->
-    <tx:advice id="transactionInterceptor" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" rollback-for="java.lang.Exception"/>
-            <tx:method name="get*" read-only="true"/>
-        </tx:attributes>
-    </tx:advice>
-    <!-- ============ transaction configuration end ================ -->
+  <!-- configuration transaction advisor -->
+  <tx:advice id="transactionInterceptor" transaction-manager="transactionManager">
+    <tx:attributes>
+      <tx:method name="*" rollback-for="java.lang.Exception"/>
+      <tx:method name="get*" read-only="true"/>
+    </tx:attributes>
+  </tx:advice>
+  <!-- ============ transaction configuration end ================ -->
 
 </beans>
