@@ -1,0 +1,34 @@
+[2020-06-05 19:22:49] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:49] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.ProvinceMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select PROVINCE_ID, PROVINCE_CODE, PROVINCE_NAME, SHORT_NAME, LNG, LAT, SORT, GMT_CREATE, GMT_MODIFIED, MEMO, DATA_STATE, TENANT_CODE from province WHERE ( PROVINCE_ID = ? ) 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 1(Integer)
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 1
+[2020-06-05 19:22:50] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.CityMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select CITY_ID, CITY_CODE, CITY_NAME, SHORT_NAME, PROVINCE_CODE, LNG, LAT, SORT, GMT_CREATE, GMT_MODIFIED, MEMO, DATA_STATE, TENANT_CODE from city WHERE ( PROVINCE_CODE = ? ) 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 110000(String)
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 1
+[2020-06-05 19:22:50] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.ProvinceMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select PROVINCE_ID, PROVINCE_CODE, PROVINCE_NAME, SHORT_NAME, LNG, LAT, SORT, GMT_CREATE, GMT_MODIFIED, MEMO, DATA_STATE, TENANT_CODE from province 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 34
+[2020-06-05 19:22:50] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.CountyMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select COUNTY_ID, COUNTY_CODE, CITY_CODE, COUNTY_NAME, SHORT_NAME, LNG, LAT, SORT, GMT_CREATE, GMT_MODIFIED, MEMO, DATA_STATE, TENANT_CODE from county WHERE ( CITY_CODE = ? ) 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 110100(String)
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 16
+[2020-06-05 19:22:50] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.EthnicMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select ethnic_id, ethnic_name from ethnic 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 57
+[2020-06-05 19:22:50] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.cache.decorators.LoggingCache --> method: getObject] Cache Hit Ratio [edu.tyut.dao.PoliticalStatusMapper]: 0.0
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select id, status from political_status 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 
+[2020-06-05 19:22:50] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 3
+[2020-06-05 19:22:59] [DEBUG] [class: edu.tyut.service.aspect.ServiceAspect --> method: resetStudentExample] 正在执行example的清理和创建工作
+[2020-06-05 19:22:59] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==>  Preparing: select id, student_id, name, sex, political_status, nation, identity_num, instructor_name, password, birth, ethnic, admission_date, academy, cls, dormitory_id, personal_phone, parent_phone, province, city, county, address_detail, remark from student WHERE ( student_id = ? ) 
+[2020-06-05 19:22:59] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] ==> Parameters: 2017004387(String)
+[2020-06-05 19:22:59] [DEBUG] [class: org.apache.ibatis.logging.jdbc.BaseJdbcLogger --> method: debug] <==      Total: 1
