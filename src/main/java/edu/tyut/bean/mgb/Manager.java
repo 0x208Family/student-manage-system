@@ -102,6 +102,7 @@ public class Manager implements LoginInformation, Serializable {
      *
      * @mbg.generated Mon Jun 01 14:23:16 CST 2020
      */
+    @Override
     public String getPassword() {
         return password;
     }

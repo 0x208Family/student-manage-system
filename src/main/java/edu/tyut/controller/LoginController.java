@@ -31,19 +31,19 @@ public class LoginController {
     }
 
     @ResponseBody
-    @RequestMapping("/stu_home")
+    @RequestMapping("/stu_check")
     public String check(Student student, HttpServletRequest req, HttpServletResponse resp) {
         return null;
     }
 
     @ResponseBody
-    @RequestMapping("/tea_home")
+    @RequestMapping("/tea_check")
     public String check(Teacher teacher, HttpServletRequest req, HttpServletResponse resp) {
         return null;
     }
 
     @ResponseBody
-    @RequestMapping("/man_home")
+    @RequestMapping("/man_check")
     public String check(Manager manager, HttpServletRequest req, HttpServletResponse resp) {
         return null;
     }

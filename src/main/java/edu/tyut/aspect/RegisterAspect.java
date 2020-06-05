@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+/**
+ * @author 16202
+ */
 @Component
 @Aspect
 public class RegisterAspect {
@@ -46,10 +50,16 @@ public class RegisterAspect {
         this.politicalStatusService = politicalStatusService;
     }
 
+    /**
+     *  处理来自页面的发送的验证码信息
+     *
+     * @param pjp aop
+     * @return    以bootstrapValidator所能接受的形式返回json数据
+     */
     @Around("execution(* edu.tyut.controller.RegisterController.*Verify(..))")
     public Map<String, Boolean> idVerify(ProceedingJoinPoint pjp) {
         RegisterInformation info = (RegisterInformation) pjp.getArgs()[0];
-        Map<String, Boolean> map = new HashMap<>();
+        Map<String, Boolean> map = new HashMap<>(1);
         map.put("valid", false);
 
         if (info.getKey().length() != info.keyLength()) {
@@ -64,6 +74,12 @@ public class RegisterAspect {
         return map;
     }
 
+    /**
+     * 保存注册的用户信息
+     *
+     * @param pjp aop
+     * @return    true或false对应的字符串
+     */
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
     public String registerVerify(ProceedingJoinPoint pjp) {
         RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
@@ -84,6 +100,12 @@ public class RegisterAspect {
         return "false";
     }
 
+    /**
+     * Initialize all element for select tag in register page
+     *
+     * @param pjp join point
+     * @return    view page
+     */
     @Around("execution(* edu.tyut.controller.RegisterController.*Register(..))")
     public String pageElementInitialize(ProceedingJoinPoint pjp) {
         Model model = (Model) pjp.getArgs()[0];
@@ -107,6 +129,12 @@ public class RegisterAspect {
         return null;
     }
 
+    /**
+     * 请求更新所有的县区选择框
+     *
+     * @param pjp aop
+     * @return    符合条件的所有的县区值
+     */
     @Around("execution(* edu.tyut.controller.RegisterController.requestCounty(..))")
     public List<County> requestCounty(ProceedingJoinPoint pjp) {
         Integer pid = (Integer) pjp.getArgs()[0];
@@ -116,6 +144,12 @@ public class RegisterAspect {
         return countyService.selectCounties(city.getCityCode());
     }
 
+    /**
+     * 请求更新所有的城市选择框
+     *
+     * @param pjp aop
+     * @return    符合条件的所有的城市
+     */
     @Around("execution(* edu.tyut.controller.RegisterController.requestCity(..))")
     public List<City> requestCity(ProceedingJoinPoint pjp) {
         Integer pid = (Integer) pjp.getArgs()[0];

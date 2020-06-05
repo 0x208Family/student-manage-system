@@ -339,6 +339,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getPoliticalStatus() {
         return politicalStatus;
     }
@@ -363,6 +364,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getNation() {
         return nation;
     }
@@ -440,6 +442,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getPassword() {
         return password;
     }
@@ -488,6 +491,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getEthnic() {
         return ethnic;
     }
@@ -656,6 +660,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getProvince() {
         return province;
     }
@@ -680,6 +685,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getCity() {
         return city;
     }
@@ -704,6 +710,7 @@ public class Student implements RegisterInformation, LoginInformation, Serializa
      *
      * @mbg.generated Mon Jun 01 16:25:49 CST 2020
      */
+    @Override
     public String getCounty() {
         return county;
     }

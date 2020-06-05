@@ -153,10 +153,10 @@ public class EthnicExample {
      *
      * @mbg.generated Sun May 31 18:05:08 CST 2020
      */
-    protected abstract static class GeneratedCriteria {
+    protected abstract static class BaseCriteria {
         protected List<Criterion> criteria;
 
-        protected GeneratedCriteria() {
+        protected BaseCriteria() {
             super();
             criteria = new ArrayList<Criterion>();
         }
@@ -331,7 +331,7 @@ public class EthnicExample {
      *
      * @mbg.generated do_not_delete_during_merge Sun May 31 18:05:08 CST 2020
      */
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends BaseCriteria {
 
         protected Criteria() {
             super();

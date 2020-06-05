@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+  <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] [%5p] [class: %C --> method: %M] %m%n"/>
+    </layout>
+  </appender>
+  <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="File" value="F://project/student-manage-system/log/info.log"/>
+    <param name="MaxBackupIndex" value="10"/>
+    <param name="MaxFileSize" value="1024kb"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] [%5p] [class: %C --> method: %M] %m%n"/>
+    </layout>
+  </appender>
+  
+  <logger name="edu.tyut" additivity="false">
+    <level value="debug"/>
+    <appender-ref ref="console"/>
+  </logger>
+
+  <logger name="org.springframework" additivity="false">
+    <level value="warn"/>
+    <appender-ref ref="console"/>
+  </logger>
+
+  <logger name="com.mchange" additivity="false">
+    <level value="warn"/>
+    <appender-ref ref="console"/>
+  </logger>
+
+  <logger name="org.hibernate" additivity="false">
+    <level value="warn"/>
+    <appender-ref ref="console"/>
+  </logger>
+
+  <logger name="org.apache.ibatis" additivity="false">
+    <level value="debug"/>
+    <appender-ref ref="console"/>
+  </logger>
+
+  <root>
+    <level value="warn"/>
+    <appender-ref ref="console"/>
+  </root>
+
+</log4j:configuration>

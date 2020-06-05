@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         } else {
             // Try to get login information from cookie
             for (Cookie c : request.getCookies()) {
-                if (c.getName().equals("user")) {
+                if ("user".equals(c.getName())) {
                     request.getRequestDispatcher("LoginSuccess.jsp").forward(request, response);
                 }
             }

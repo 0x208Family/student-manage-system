@@ -153,10 +153,10 @@ public class CourseExample {
      *
      * @mbg.generated Mon Jun 01 14:23:16 CST 2020
      */
-    protected abstract static class GeneratedCriteria {
+    protected abstract static class BaseCriteria {
         protected List<Criterion> criteria;
 
-        protected GeneratedCriteria() {
+        protected BaseCriteria() {
             super();
             criteria = new ArrayList<Criterion>();
         }
@@ -601,7 +601,7 @@ public class CourseExample {
      *
      * @mbg.generated do_not_delete_during_merge Mon Jun 01 14:23:16 CST 2020
      */
-    public static class Criteria extends GeneratedCriteria {
+    public static class Criteria extends BaseCriteria {
 
         protected Criteria() {
             super();
