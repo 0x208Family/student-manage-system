@@ -68,7 +68,7 @@ public class RegisterAspect {
             return map;
         }
         if (info.getClass() == Student.class) {
-            map.put("valid", studentService.selectById(info.getKey()) == null);
+            map.put("valid", studentService.queryById(info.getKey()) == null);
         } else {
             map.put("valid", teacherService.selectById(info.getKey()) == null);
         }

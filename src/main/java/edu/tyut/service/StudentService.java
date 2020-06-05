@@ -11,6 +11,5 @@ public interface StudentService extends CriteriaHelper {
 
     int update(Student student);
 
-    Student selectById(String studentId);
-
+    Student queryById(String studentId);
 }

@@ -61,4 +61,6 @@ public interface StudentMapper {
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
     int updateByExample(@Param("record") Student record, @Param("example") StudentExample example);
+
+    Student queryById(String studentId);
 }

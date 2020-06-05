@@ -39,13 +39,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public Student selectById(String studentId) {
-        sc.andStudentIdEqualTo(studentId);
-        List<Student> res = studentMapper.selectByExample(se);
-        if (res.size() != 0) {
-            return res.get(0);
-        }
-        return null;
+    public Student queryById(String studentId) {
+        return studentMapper.queryById(studentId);
     }
 
     @Override
