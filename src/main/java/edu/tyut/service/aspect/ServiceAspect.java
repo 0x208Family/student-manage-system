@@ -18,8 +18,8 @@ public class ServiceAspect {
     public void resetStudentExample(JoinPoint joinPoint)  {
         try {
             Object target = joinPoint.getTarget();
-            Method clear = target.getClass().getMethod("clearCriteria");
-            Method create = target.getClass().getMethod("createCriteria");
+            Method clear = target.getClass().getMethod(CriteriaHelper.CLEAR_SIGNATURE);
+            Method create = target.getClass().getMethod(CriteriaHelper.CREATE_SIGNATURE);
             clear.invoke(target);
             create.invoke(target);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {

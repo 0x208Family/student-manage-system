@@ -1,6 +1,7 @@
 package edu.tyut.service;
 
 import edu.tyut.bean.mgb.Teacher;
+import edu.tyut.service.aspect.CriteriaHelper;
 
 public interface TeacherService extends CriteriaHelper {
 
