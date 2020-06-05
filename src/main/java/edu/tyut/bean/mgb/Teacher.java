@@ -2,9 +2,11 @@ package edu.tyut.bean.mgb;
 
 import edu.tyut.bean.LoginInformation;
 import edu.tyut.bean.RegisterInformation;
+import lombok.ToString;
 
 import java.io.Serializable;
 
+@ToString
 public class Teacher implements RegisterInformation, LoginInformation, Serializable {
 
     private static final int KEY_LENGTH = 10;
@@ -278,7 +280,7 @@ public class Teacher implements RegisterInformation, LoginInformation, Serializa
 
     @Override
     public String getKey() {
-        return null;
+        return teacherId;
     }
 
     @Override

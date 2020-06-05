@@ -62,6 +62,7 @@ public class RegisterAspect {
         Map<String, Boolean> map = new HashMap<>(1);
         map.put("valid", false);
 
+        System.out.println("=================" + info + "---->");
         if (info.getKey().length() != info.keyLength()) {
             map.put("valid", false);
             return map;
