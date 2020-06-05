@@ -4,7 +4,6 @@ import edu.tyut.bean.mgb.PoliticalStatus;
 import edu.tyut.bean.mgb.PoliticalStatusExample;
 import edu.tyut.dao.PoliticalStatusMapper;
 import edu.tyut.service.PoliticalStatusService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

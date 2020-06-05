@@ -33,25 +33,26 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-<!--        <table tableName="academic_credit" domainObjectName="AcademicCredit"/>-->
-<!--        <table tableName="academy" domainObjectName="Academy"/>-->
-<!--        <table tableName="cls" domainObjectName="Cls"/>-->
-<!--        <table tableName="course" domainObjectName="Course"/>-->
-<!--        <table tableName="elective_score" domainObjectName="ElectiveScore"/>-->
-<!--        <table tableName="electives" domainObjectName="Electives"/>-->
-<!--        <table tableName="instructor" domainObjectName="Instructor"/>-->
-<!--        <table tableName="manager_login" domainObjectName="Manager"/>-->
-<!--        <table tableName="profession" domainObjectName="Profession"/>-->
-<!--        <table tableName="reward_and_punishment" domainObjectName="RewardAndPunishment"/>-->
-<!--        <table tableName="score" domainObjectName="Score"/>-->
-<!--        <table tableName="student" domainObjectName="Student"/>-->
-<!--        <table tableName="student_electives" domainObjectName="StudentElectives"/>-->
-<!--        <table tableName="student_login" domainObjectName="StudentLogin"/>-->
-<!--        <table tableName="teacher" domainObjectName="Teacher"/>-->
-<!--        <table tableName="teacher_login" domainObjectName="TeacherLogin"/>-->
-<!--        <table tableName="transfer_info" domainObjectName="TransferInfo"/>-->
-<!--        <table tableName="F" domainObjectName="R"/>-->
+        <table tableName="academic_credit" domainObjectName="AcademicCredit"/>
+        <table tableName="academy" domainObjectName="Academy"/>
+        <table tableName="cls" domainObjectName="Cls"/>
+        <table tableName="course" domainObjectName="Course"/>
+        <table tableName="elective_score" domainObjectName="ElectiveScore"/>
+        <table tableName="electives" domainObjectName="Electives"/>
+        <table tableName="manager" domainObjectName="Manager"/>
+        <table tableName="profession" domainObjectName="Profession"/>
+        <table tableName="reward_and_punishment" domainObjectName="RewardAndPunishment"/>
+        <table tableName="score" domainObjectName="Score"/>
+        <table tableName="student" domainObjectName="Student"/>
+        <table tableName="student_electives" domainObjectName="StudentElectives"/>
+        <table tableName="teacher" domainObjectName="Teacher"/>
+        <table tableName="transfer_information" domainObjectName="TransferInformation"/>
         <table tableName="political_status" domainObjectName="PoliticalStatus"/>
+        <table tableName="province" domainObjectName="Province"/>
+        <table tableName="city" domainObjectName="City"/>
+        <table tableName="county" domainObjectName="County"/>
+        <table tableName="ethnic" domainObjectName="Ethnic"/>
+
 
     </context>
 </generatorConfiguration>

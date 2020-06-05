@@ -4,7 +4,6 @@ import edu.tyut.bean.mgb.County;
 import edu.tyut.bean.mgb.CountyExample;
 import edu.tyut.dao.CountyMapper;
 import edu.tyut.service.CountyService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

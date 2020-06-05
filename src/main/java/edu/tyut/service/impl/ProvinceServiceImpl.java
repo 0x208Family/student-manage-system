@@ -4,7 +4,7 @@ import edu.tyut.bean.mgb.Province;
 import edu.tyut.bean.mgb.ProvinceExample;
 import edu.tyut.dao.ProvinceMapper;
 import edu.tyut.service.ProvinceService;
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
