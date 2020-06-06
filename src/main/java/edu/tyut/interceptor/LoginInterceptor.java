@@ -50,6 +50,9 @@ public class LoginInterceptor implements HandlerInterceptor {
                     String json = SystemUtil.cookieToJson(c.getValue());
                     Student student = SystemUtil.deserialization(json, Student.class);
                     if (student != null && studentService.loginHelper(student.getStudentId(), student.getPassword())) {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("login information get from cookie");
+                        }
                         request.getRequestDispatcher("/stu_home").forward(request, response);
                     }
                     return true;
@@ -57,6 +60,9 @@ public class LoginInterceptor implements HandlerInterceptor {
                     String json = SystemUtil.cookieToJson(c.getValue());
                     Teacher teacher = SystemUtil.deserialization(json, Teacher.class);
                     if (teacher != null && teacherService.loginHelper(teacher.getTeacherId(), teacher.getPassword())) {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("login information get from cookie");
+                        }
                         if (teacher.getRoot() != null) { // instructor
                             request.getRequestDispatcher("/ins_home").forward(request, response);
                         } else {    // teacher
@@ -68,6 +74,9 @@ public class LoginInterceptor implements HandlerInterceptor {
                     String json = SystemUtil.cookieToJson(c.getValue());
                     Manager manager = SystemUtil.deserialization(json, Manager.class);
                     if (manager != null && managerService.loginHelper(manager.getName(), manager.getPassword())) {
+                        if (logger.isInfoEnabled()) {
+                            logger.info("login information get from cookie");
+                        }
                         request.getRequestDispatcher("/man_home").forward(request, response);
                     }
                     return true;
