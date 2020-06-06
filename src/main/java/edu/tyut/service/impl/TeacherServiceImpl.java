@@ -1,5 +1,6 @@
 package edu.tyut.service.impl;
 
+import edu.tyut.annotation.AOPIgnore;
 import edu.tyut.bean.mgb.Teacher;
 import edu.tyut.bean.mgb.TeacherExample;
 import edu.tyut.dao.TeacherMapper;
@@ -19,6 +20,7 @@ public class TeacherServiceImpl implements TeacherService {
         this.teacherMapper = teacherMapper;
     }
 
+    @AOPIgnore
     @Override
     public int insert(Teacher teacher) {
         return teacherMapper.insert(teacher);
@@ -36,9 +38,17 @@ public class TeacherServiceImpl implements TeacherService {
         return teacherMapper.updateByExample(teacher, te);
     }
 
+    @AOPIgnore
     @Override
     public Teacher queryById(String teacherId) {
         return teacherMapper.queryById(teacherId);
+    }
+
+    @Override
+    public boolean loginHelper(String teacherId, String password) {
+        tc.andTeacherIdEqualTo(teacherId);
+        tc.andPasswordEqualTo(password);
+        return teacherMapper.selectByExample(te).size() != 0;
     }
 
     @Override

@@ -12,4 +12,6 @@ public interface TeacherService extends CriteriaHelper {
     int update(Teacher teacher);
 
     Teacher queryById(String teacherId);
+
+    boolean loginHelper(String teacherId, String password);
 }

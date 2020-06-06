@@ -47,11 +47,12 @@
             <ul class="layui-tab-title">
                 <li class="col-md-4 layui-this"><strong>学生登录</strong></li>
                 <li class="col-md-4"><strong>教师登录</strong></li>
+                <li class="col-md-4"><strong>辅导员登录</strong></li>
                 <li class="col-md-4"><strong>管理员登录</strong></li>
             </ul>
             <div class="layui-tab-content" style="height: 100px;">
                 <div class="layui-tab-item layui-show">
-                    <form method="post" action="${pageContext.request.contextPath}/stu_home">
+                    <form method="post" action="${pageContext.request.contextPath}/stu_check">
                         <div class="form-group">
                             <label for="studentId">学号</label>
                             <input type="text" class="form-control" id="studentId" name="studentId" placeholder="学号">
@@ -72,7 +73,7 @@
                     </form>
                 </div>
                 <div class="layui-tab-item">
-                    <form>
+                    <form method="post" action="${pageContext.request.contextPath}/tea_check">
                         <div class="form-group">
                             <label for="teacherId">教师编号</label>
                             <input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="教师编号">
@@ -93,7 +94,28 @@
                     </form>
                 </div>
                 <div class="layui-tab-item">
-                    <form>
+                    <form method="post" action="${pageContext.request.contextPath}/tea_check">
+                        <div class="form-group">
+                            <label for="instructor">辅导员编号</label>
+                            <input type="text" class="form-control" id="instructor" name="teacherId" placeholder="辅导员编号">
+                        </div>
+                        <div class="form-group">
+                            <label for="instructor_password">密码</label>
+                            <input type="password" class="form-control" id="instructor_password" name="password" placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" name="remember"><strong> 七天免登录</strong>
+                        </div>
+                        <div class="form-group">
+                            <p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a> </p>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="layui-tab-item">
+                    <form method="post" action="${pageContext.request.contextPath}/man_check">
                         <div class="form-group">
                             <label for="managerId">管理员编号</label>
                             <input type="text" class="form-control" id="managerId" name="managerId" placeholder="管理员编号">

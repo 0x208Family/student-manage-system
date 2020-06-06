@@ -1,9 +1,13 @@
 package edu.tyut.bean.mgb;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.LoginInformation;
 import edu.tyut.bean.RegisterInformation;
 import lombok.ToString;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 @ToString
@@ -18,6 +22,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @NotBlank(message = "学号不能为空")
+    @Length(min = 10, max = 10, message = "学号不正确")
     private String studentId;
 
     /**
@@ -27,6 +33,9 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "姓名不能为空")
+    @Length(min = 2, max = 4, message = "姓名不正确")
     private String name;
 
     /**
@@ -36,6 +45,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "性别不能为空")
     private String sex;
 
     /**
@@ -45,6 +56,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "政治状态不能为空")
     private String politicalStatus;
 
     /**
@@ -54,6 +67,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "籍贯不能为空")
     private String nation;
 
     /**
@@ -63,6 +78,11 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @Length(min = 15, max = 18, message = "身份证错误")
+    @NotBlank(message = "身份证不能为空")
+    @Pattern(regexp = "^[1-9]\\d{5}(18|19|20|(3\\d))\\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$",
+            message = "无效的身份证号码")
     private String identityNum;
 
     /**
@@ -72,6 +92,9 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "辅导也姓名不能为空")
+    @Length(min = 2, max = 4, message = "错误的姓名")
     private String instructorName;
 
     /**
@@ -81,6 +104,10 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @NotBlank(message = "密码不能为空")
+    @Length(min = 8, max = 16, message = "密码长度必须在8-16位")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,16}$",
+            message = "密码长度必须在8-16位，且必须至少包含一个大写字母，一个小写字母和一个数字")
     private String password;
 
     /**
@@ -90,6 +117,7 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
     private Date birth;
 
     /**
@@ -99,6 +127,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "民族不能为空")
     private String ethnic;
 
     /**
@@ -108,6 +138,7 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
     private Date admissionDate;
 
     /**
@@ -117,6 +148,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "学院不能为空")
     private String academy;
 
     /**
@@ -126,6 +159,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "班级不能为空")
     private String cls;
 
     /**
@@ -135,6 +170,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "宿舍号不能为空")
     private String dormitoryId;
 
     /**
@@ -144,6 +181,11 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "号码不能为空")
+    @Length(max = 11)
+    @Pattern(regexp = " ((\\d{11})|^((\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d)|(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d))$)",
+            message = "号码错误")
     private String personalPhone;
 
     /**
@@ -153,6 +195,11 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "号码不能为空")
+    @Length(max = 11)
+    @Pattern(regexp = " ((\\d{11})|^((\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d)|(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d))$)",
+            message = "号码错误")
     private String parentPhone;
 
     /**
@@ -162,6 +209,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "省份不能为空")
     private String province;
 
     /**
@@ -171,6 +220,8 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
+    @NotBlank(message = "城市不能为空")
     private String city;
 
     /**
@@ -180,6 +231,7 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
     private String county;
 
     /**
@@ -189,6 +241,7 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
     private String addressDetail;
 
     /**
@@ -198,6 +251,7 @@ public class Student implements LoginInformation, RegisterInformation {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
+    @JsonIgnore
     private String remark;
 
     /**

@@ -18,33 +18,41 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping("stu_home")
     public String studentHome() {
         return "success";
     }
 
+    @RequestMapping("tea_home")
     public String teacherHome() {
         return "success";
     }
 
+    @RequestMapping("ins_home")
+    public String instructorHome() {
+        return "success";
+    }
+
+    @RequestMapping("man_home")
     public String managerHome() {
         return "success";
     }
 
     @ResponseBody
     @RequestMapping("/stu_check")
-    public String check(Student student, HttpServletRequest req, HttpServletResponse resp) {
-        return null;
+    public boolean check(Student student, HttpServletRequest req, HttpServletResponse resp) {
+        return false;
     }
 
     @ResponseBody
     @RequestMapping("/tea_check")
-    public String check(Teacher teacher, HttpServletRequest req, HttpServletResponse resp) {
-        return null;
+    public boolean check(Teacher teacher, HttpServletRequest req, HttpServletResponse resp) {
+        return false;
     }
 
     @ResponseBody
     @RequestMapping("/man_check")
-    public String check(Manager manager, HttpServletRequest req, HttpServletResponse resp) {
-        return null;
+    public boolean check(Manager manager, HttpServletRequest req, HttpServletResponse resp) {
+        return false;
     }
 }

@@ -1,5 +1,6 @@
 package edu.tyut.service.impl;
 
+import edu.tyut.annotation.AOPIgnore;
 import edu.tyut.bean.mgb.City;
 import edu.tyut.bean.mgb.CityExample;
 import edu.tyut.dao.CityMapper;
@@ -48,6 +49,7 @@ public class CityServiceImpl implements CityService {
         return cityMapper.selectByExample(ce);
     }
 
+    @AOPIgnore
     @Override
     public int insert(City city) {
         return cityMapper.insert(city);

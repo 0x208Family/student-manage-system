@@ -12,4 +12,6 @@ public interface StudentService extends CriteriaHelper {
     int update(Student student);
 
     Student queryById(String studentId);
+
+    boolean loginHelper(String studentId, String password);
 }

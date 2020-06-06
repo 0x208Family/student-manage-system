@@ -15,9 +15,9 @@ public class ServiceAspect {
 
     private static final Logger logger = Logger.getLogger(ServiceAspect.class);
 
-    @Before("execution(* edu.tyut.service.impl.*.select*(..)) ||" +
-            "execution(* edu.tyut.service.impl.*.update*(..)) ||" +
-            "execution(* edu.tyut.service.impl.*.delete*(..)) )))")
+    @Before("execution(* edu.tyut.service.impl.*.*(..)) &&" +
+            "!@annotation(edu.tyut.annotation.AOPIgnore) &&" +
+            "!execution(* edu.tyut.service.aspect.CriteriaHelper.*(..))))")
     public void resetStudentExample(JoinPoint joinPoint)  {
         try {
             Object target = joinPoint.getTarget();
