@@ -65,7 +65,6 @@ public class CityServiceImpl implements CityService {
 
     @Override
     public void clearCriteria() {
-        System.out.println("============= clearCriteria city =============");
         ce.clear();
     }
 

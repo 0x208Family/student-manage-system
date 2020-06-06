@@ -61,4 +61,6 @@ public interface ManagerMapper {
      * @mbg.generated Fri Jun 05 21:19:30 CST 2020
      */
     int updateByExample(@Param("record") Manager record, @Param("example") ManagerExample example);
+
+    Manager queryByPrimaryKey(String name);
 }

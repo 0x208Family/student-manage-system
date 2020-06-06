@@ -262,6 +262,15 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="queryById" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from teacher
+    <where>
+      <if test="teacherId != null">
+        teacher_id = #{teacherId}
+      </if>
+    </where>
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
       WARNING - @mbg.generated

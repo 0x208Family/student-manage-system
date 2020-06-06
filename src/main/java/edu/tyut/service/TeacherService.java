@@ -11,5 +11,5 @@ public interface TeacherService extends CriteriaHelper {
 
     int update(Teacher teacher);
 
-    Teacher selectById(String teacherId);
+    Teacher queryById(String teacherId);
 }

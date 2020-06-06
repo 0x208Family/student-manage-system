@@ -1,6 +1,7 @@
 package edu.tyut.controller;
 
 import com.google.code.kaptcha.Constants;
+import edu.tyut.bean.RegisterException;
 import edu.tyut.bean.mgb.City;
 import edu.tyut.bean.mgb.County;
 import edu.tyut.bean.mgb.Student;
@@ -77,13 +78,19 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping("/save_student")
-    public String saveStudent(Student student, BindingResult result) {
-        return null;
+    public boolean saveStudent(Student student, BindingResult result) throws RegisterException {
+        if (result.hasErrors()) {
+            throw new RegisterException("信息注册错误：" + result.getAllErrors());
+        }
+        return true;
     }
 
     @ResponseBody
     @RequestMapping("/save_teacher")
-    public String saveTeacher(Teacher teacher, BindingResult result) {
-        return null;
+    public boolean saveTeacher(Teacher teacher, BindingResult result) throws RegisterException {
+        if (result.hasErrors()) {
+            throw new RegisterException("信息注册错误：" + result.getAllErrors());
+        }
+        return true;
     }
 }

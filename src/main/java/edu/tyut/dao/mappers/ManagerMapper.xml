@@ -169,6 +169,14 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+  <select id="queryByPrimaryKey" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from manager
+    <where>
+      <if test="name != null">
+        name = #{name}
+      </if>
+    </where>
+  </select>
   <update id="updateByExampleSelective" parameterType="map">
     <!--
       WARNING - @mbg.generated

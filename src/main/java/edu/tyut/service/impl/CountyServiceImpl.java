@@ -29,7 +29,6 @@ public class CountyServiceImpl implements CountyService {
 
     @Override
     public void clearCriteria() {
-        System.out.println("============== clearCriteria county ================");
         ce.clear();
     }
 

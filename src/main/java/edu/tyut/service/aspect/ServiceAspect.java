@@ -20,13 +20,16 @@ public class ServiceAspect {
             "execution(* edu.tyut.service.impl.*.delete*(..)) )))")
     public void resetStudentExample(JoinPoint joinPoint)  {
         try {
-            if (logger.isDebugEnabled()) {
-                logger.debug("正在执行example的清理和创建工作");
-            }
             Object target = joinPoint.getTarget();
             Method clear = target.getClass().getMethod(CriteriaHelper.CLEAR_SIGNATURE);
             Method create = target.getClass().getMethod(CriteriaHelper.CREATE_SIGNATURE);
+            if (logger.isDebugEnabled()) {
+                logger.debug("正在重置：" + target.getClass().getName() + "的example");
+            }
             clear.invoke(target);
+            if (logger.isDebugEnabled()) {
+                logger.debug("正在创建：" + target.getClass().getName() + "的criteria");
+            }
             create.invoke(target);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             logger.error("在清理和创建example时出现异常", e.getCause());

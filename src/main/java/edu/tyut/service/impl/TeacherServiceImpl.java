@@ -6,8 +6,6 @@ import edu.tyut.dao.TeacherMapper;
 import edu.tyut.service.TeacherService;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service("teacherService")
 public class TeacherServiceImpl implements TeacherService {
 
@@ -39,13 +37,8 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public Teacher selectById(String teacherId) {
-        tc.andTeacherIdEqualTo(teacherId);
-        List<Teacher> res = teacherMapper.selectByExample(te);
-        if (res.size() != 0) {
-            return res.get(0);
-        }
-        return null;
+    public Teacher queryById(String teacherId) {
+        return teacherMapper.queryById(teacherId);
     }
 
     @Override

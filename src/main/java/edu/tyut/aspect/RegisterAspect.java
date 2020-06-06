@@ -4,12 +4,12 @@ import edu.tyut.bean.RegisterInformation;
 import edu.tyut.bean.mgb.*;
 import edu.tyut.service.*;
 
+import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 
 import java.util.HashMap;
 import java.util.List;
@@ -22,6 +22,8 @@ import java.util.Map;
 @Component
 @Aspect
 public class RegisterAspect {
+
+    private static final Logger logger = Logger.getLogger(RegisterAspect.class);
 
     private ProvinceService provinceService;
 
@@ -62,7 +64,7 @@ public class RegisterAspect {
         Map<String, Boolean> map = new HashMap<>(1);
         map.put("valid", false);
 
-        System.out.println("=================" + info + "---->");
+        // validate threshold
         if (info.getKey().length() != info.keyLength()) {
             map.put("valid", false);
             return map;
@@ -70,7 +72,7 @@ public class RegisterAspect {
         if (info.getClass() == Student.class) {
             map.put("valid", studentService.queryById(info.getKey()) == null);
         } else {
-            map.put("valid", teacherService.selectById(info.getKey()) == null);
+            map.put("valid", teacherService.queryById(info.getKey()) == null);
         }
         return map;
     }
@@ -82,23 +84,26 @@ public class RegisterAspect {
      * @return    true或false对应的字符串
      */
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
-    public String registerVerify(ProceedingJoinPoint pjp) {
+    public boolean registerVerify(ProceedingJoinPoint pjp) {
         RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
-        BindingResult result = (BindingResult) pjp.getArgs()[1];
-
-        // assume data
-        if (result.hasErrors()) {
-            System.out.println("form data has errors");
-            return "false";
+        try {
+            if (logger.isDebugEnabled()) {
+                logger.debug("正在进行: " + obj.getClass().getName() + " 对象的数据校验");
+            }
+            pjp.proceed(pjp.getArgs());
+            if (logger.isDebugEnabled()) {
+                logger.debug("正在保存注册信息");
+            }
+//            if (obj.getClass() == Student.class) {
+//                studentService.insert((Student) obj);
+//            } else {
+//                teacherService.insert((Teacher) obj);
+//            }
+            return true;
+        } catch (Throwable th) {
+            logger.error(th.getMessage(), th.getCause());
         }
-        System.out.println(obj);
-        // save to database
-//        if (obj.getClass() == Teacher.class) {
-//            return (teacherService.insert((Teacher) obj) != 0) + "";
-//        } else { // submit by student
-//            return (studentService.insert((Student) obj) != 0) + "";
-//        }
-        return "false";
+        return false;
     }
 
     /**
