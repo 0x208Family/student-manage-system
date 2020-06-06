@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Map;
 
@@ -78,7 +79,7 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping("/save_student")
-    public boolean saveStudent(Student student, BindingResult result) throws RegisterException {
+    public boolean saveStudent(@Valid Student student, BindingResult result) throws RegisterException {
         if (result.hasErrors()) {
             throw new RegisterException("信息注册错误：" + result.getAllErrors());
         }
@@ -87,7 +88,7 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping("/save_teacher")
-    public boolean saveTeacher(Teacher teacher, BindingResult result) throws RegisterException {
+    public boolean saveTeacher(@Valid Teacher teacher, BindingResult result) throws RegisterException {
         if (result.hasErrors()) {
             throw new RegisterException("信息注册错误：" + result.getAllErrors());
         }

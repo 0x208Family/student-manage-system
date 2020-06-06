@@ -127,6 +127,10 @@ function studentDateValidator(url) {
                         min: 11,
                         max: 11,
                         message: '无效的手机号'
+                    },
+                    regexp: {
+                        regexp: /^1[3456789]\d{9}$/,
+                        message: "无效的手机号"
                     }
                 }
             },
@@ -142,6 +146,10 @@ function studentDateValidator(url) {
                         min: 11,
                         max: 11,
                         message: '无效的手机号'
+                    },
+                    regexp: {
+                        regexp: /^1[3456789]\d{9}$/,
+                        message: "无效的手机号"
                     }
                 }
             },
@@ -316,6 +324,10 @@ function teacherDateValidator(url) {
                         min: 11,
                         max: 11,
                         message: '无效的手机号'
+                    },
+                    regexp: {
+                        regexp: /^1[3456789]\d{9}$/,
+                        message: "无效的手机号"
                     }
                 }
             },

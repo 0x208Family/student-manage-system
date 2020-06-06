@@ -184,7 +184,7 @@ public class Student implements LoginInformation, RegisterInformation {
     @JsonIgnore
     @NotBlank(message = "号码不能为空")
     @Length(max = 11)
-    @Pattern(regexp = " ((\\d{11})|^((\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d)|(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d))$)",
+    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$",
             message = "号码错误")
     private String personalPhone;
 
@@ -198,7 +198,7 @@ public class Student implements LoginInformation, RegisterInformation {
     @JsonIgnore
     @NotBlank(message = "号码不能为空")
     @Length(max = 11)
-    @Pattern(regexp = " ((\\d{11})|^((\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})|(\\d{4}|\\d{3})-(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d)|(\\d{7,8})-(\\d{4}|\\d{3}|\\d{2}|\\d))$)",
+    @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$",
             message = "号码错误")
     private String parentPhone;
 

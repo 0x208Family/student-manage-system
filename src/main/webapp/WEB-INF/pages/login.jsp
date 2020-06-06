@@ -45,14 +45,14 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="col-md-10 col-md-offset-1 layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
-                <li class="col-md-4 layui-this"><strong>学生登录</strong></li>
-                <li class="col-md-4"><strong>教师登录</strong></li>
-                <li class="col-md-4"><strong>辅导员登录</strong></li>
-                <li class="col-md-4"><strong>管理员登录</strong></li>
+                <li class="col-md-3 layui-this"><strong>学生登录</strong></li>
+                <li class="col-md-3"><strong>教师登录</strong></li>
+                <li class="col-md-3"><strong>辅导员登录</strong></li>
+                <li class="col-md-3"><strong>管理员登录</strong></li>
             </ul>
             <div class="layui-tab-content" style="height: 100px;">
                 <div class="layui-tab-item layui-show">
-                    <form method="post" action="${pageContext.request.contextPath}/stu_check">
+                    <form id="stu_form" method="post" action="${pageContext.request.contextPath}/stu_check">
                         <div class="form-group">
                             <label for="studentId">学号</label>
                             <input type="text" class="form-control" id="studentId" name="studentId" placeholder="学号">
@@ -68,12 +68,12 @@
                             <p>没有账号？<a href="${pageContext.request.contextPath}/stu_register_page"><strong>去注册</strong></a> </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
+                            <button id="stu_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
                         </div>
                     </form>
                 </div>
                 <div class="layui-tab-item">
-                    <form method="post" action="${pageContext.request.contextPath}/tea_check">
+                    <form id="tea_form" method="post" action="${pageContext.request.contextPath}/tea_check">
                         <div class="form-group">
                             <label for="teacherId">教师编号</label>
                             <input type="text" class="form-control" id="teacherId" name="teacherId" placeholder="教师编号">
@@ -89,12 +89,12 @@
                             <p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a> </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
+                            <button id="tea_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
                         </div>
                     </form>
                 </div>
                 <div class="layui-tab-item">
-                    <form method="post" action="${pageContext.request.contextPath}/tea_check">
+                    <form id="ins_form" method="post" action="${pageContext.request.contextPath}/tea_check">
                         <div class="form-group">
                             <label for="instructor">辅导员编号</label>
                             <input type="text" class="form-control" id="instructor" name="teacherId" placeholder="辅导员编号">
@@ -110,12 +110,12 @@
                             <p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a> </p>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
+                            <button id="ins_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
                         </div>
                     </form>
                 </div>
                 <div class="layui-tab-item">
-                    <form method="post" action="${pageContext.request.contextPath}/man_check">
+                    <form id="man_form" method="post" action="${pageContext.request.contextPath}/man_check">
                         <div class="form-group">
                             <label for="managerId">管理员编号</label>
                             <input type="text" class="form-control" id="managerId" name="managerId" placeholder="管理员编号">
@@ -128,7 +128,7 @@
                             <input type="checkbox" name="remember"><strong> 七天免登录</strong>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
+                            <button id="man_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
                         </div>
                     </form>
                 </div>
@@ -136,9 +136,16 @@
         </div>
     </div>
 </div>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/login.js"></script>
 <script type="text/javascript">
-    $(function () {layui.use(['element'], function () {})})
+    $(function () {
+        layui.use(['element'], function () {})
+
+        submitHandler('#stu_login', '#stu_form', '${pageContext.request.contextPath}/stu_check', '${pageContext.request.contextPath}/stu_home')
+        submitHandler('#tea_login', '#tea_form', '${pageContext.request.contextPath}/tea_check', '${pageContext.request.contextPath}/tea_home')
+        submitHandler('#ins_login', '#ins_form', '${pageContext.request.contextPath}/ins_check', '${pageContext.request.contextPath}/ins_home')
+        submitHandler('#man_login', '#man_form', '${pageContext.request.contextPath}/man_check', '${pageContext.request.contextPath}/man_home')
+    })
 </script>
 </body>
 </html>

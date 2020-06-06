@@ -2,7 +2,6 @@ package edu.tyut.aspect;
 
 import edu.tyut.bean.LoginInformation;
 
-import edu.tyut.bean.mgb.Manager;
 import edu.tyut.bean.mgb.Student;
 import edu.tyut.bean.mgb.Teacher;
 import edu.tyut.controller.ConstFlg;
@@ -30,6 +29,8 @@ public class LoginAspect {
 
     private static final Logger logger = Logger.getLogger(LoginAspect.class);
 
+    private static final int COOKIE_MAX_AGE = 604800;
+
     StudentService studentService;
 
     TeacherService teacherService;
@@ -51,40 +52,47 @@ public class LoginAspect {
         HttpServletResponse resp = (HttpServletResponse) pjp.getArgs()[2];
 
         System.out.println(obj);
+        boolean remember = req.getParameter("remember") != null;
         // check login information and save login information to the session and cookie
         if (obj.getClass() == Student.class) {
-            Student student = studentService.queryById(obj.getIdentityKey());
-            if (student != null && student.getPassword().equals(obj.getPassword())) {
+            if (studentService.loginHelper(obj.getIdentityKey(), obj.getPassword())) {
                 req.getSession().setAttribute(ConstFlg.HAS_LOGIN, true);
-                Cookie c = new Cookie(ConstFlg.STUDENT_COOKIE, SystemUtil.serialization(obj));
-                c.setMaxAge(60);
-                resp.addCookie(c);
+                if (remember) {
+                    String cookieValue = SystemUtil.jsonToCookie(SystemUtil.serialization(obj));
+                    Cookie c = new Cookie(ConstFlg.STUDENT_COOKIE, cookieValue);
+                    c.setMaxAge(COOKIE_MAX_AGE);
+                    resp.addCookie(c);
+                }
                 if (logger.isInfoEnabled()) {
-                    logger.info(obj.getClass().getName() + "登陆成功");
+                    logger.info(obj.getClass().getName() + "登录成功");
                 }
                 return true;
             }
         } else if (obj.getClass() == Teacher.class) {
-            Teacher teacher = teacherService.queryById(obj.getIdentityKey());
-            if (teacher != null && teacher.getPassword().equals(obj.getPassword())) {
+            if (teacherService.loginHelper(obj.getIdentityKey(), obj.getPassword())) {
                 req.getSession().setAttribute(ConstFlg.HAS_LOGIN, true);
-                Cookie c = new Cookie(ConstFlg.TEACHER_COOKIE, SystemUtil.serialization(obj));
-                c.setMaxAge(60);
-                resp.addCookie(c);
+                if (remember) {
+                    String cookieValue = SystemUtil.jsonToCookie(SystemUtil.serialization(obj));
+                    Cookie c = new Cookie(ConstFlg.STUDENT_COOKIE, cookieValue);
+                    c.setMaxAge(COOKIE_MAX_AGE);
+                    resp.addCookie(c);
+                }
                 if (logger.isInfoEnabled()) {
-                    logger.info(obj.getClass().getName() + "登陆成功");
+                    logger.info(obj.getClass().getName() + "登录成功");
                 }
                 return true;
             }
         } else { // manager
-            Manager manager = managerService.queryByPrimaryKey(obj.getIdentityKey());
-            if (manager != null && manager.getPassword().equals(obj.getPassword())) {
+            if (managerService.loginHelper(obj.getIdentityKey(), obj.getPassword())) {
                 req.getSession().setAttribute(ConstFlg.HAS_LOGIN, true);
-                Cookie c = new Cookie(ConstFlg.MANAGER_COOKIE, SystemUtil.serialization(obj));
-                c.setMaxAge(60);
-                resp.addCookie(c);
+                if (remember) {
+                    String cookieValue = SystemUtil.jsonToCookie(SystemUtil.serialization(obj));
+                    Cookie c = new Cookie(ConstFlg.STUDENT_COOKIE, cookieValue);
+                    c.setMaxAge(COOKIE_MAX_AGE);
+                    resp.addCookie(c);
+                }
                 if (logger.isInfoEnabled()) {
-                    logger.info(obj.getClass().getName() + "登陆成功");
+                    logger.info(obj.getClass().getName() + "登录成功");
                 }
                 return true;
             }

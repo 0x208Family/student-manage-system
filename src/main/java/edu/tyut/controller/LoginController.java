@@ -18,24 +18,24 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping("stu_home")
+    @RequestMapping("/stu_home")
     public String studentHome() {
-        return "success";
+        return "stu-home-page";
     }
 
-    @RequestMapping("tea_home")
+    @RequestMapping("/tea_home")
     public String teacherHome() {
-        return "success";
+        return "tea-home-page";
     }
 
-    @RequestMapping("ins_home")
+    @RequestMapping("/ins_home")
     public String instructorHome() {
-        return "success";
+        return "ins-home-page";
     }
 
-    @RequestMapping("man_home")
+    @RequestMapping("/man_home")
     public String managerHome() {
-        return "success";
+        return "man-home-page";
     }
 
     @ResponseBody

@@ -1,5 +1,7 @@
 package edu.tyut.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public interface RegisterInformation {
 
     // location
@@ -18,6 +20,7 @@ public interface RegisterInformation {
     // political status
     String getPoliticalStatus();
 
+    @JsonIgnore
     String getKey();
 
     int keyLength();
