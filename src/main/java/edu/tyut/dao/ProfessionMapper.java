@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
-import edu.tyut.bean.mgb.Profession;
-import edu.tyut.bean.mgb.ProfessionExample;
+import edu.tyut.bean.mbg.Profession;
+import edu.tyut.bean.mbg.ProfessionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -2,10 +2,10 @@ package edu.tyut.controller;
 
 import com.google.code.kaptcha.Constants;
 import edu.tyut.bean.RegisterException;
-import edu.tyut.bean.mgb.City;
-import edu.tyut.bean.mgb.County;
-import edu.tyut.bean.mgb.Student;
-import edu.tyut.bean.mgb.Teacher;
+import edu.tyut.bean.mbg.City;
+import edu.tyut.bean.mbg.County;
+import edu.tyut.bean.mbg.Student;
+import edu.tyut.bean.mbg.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

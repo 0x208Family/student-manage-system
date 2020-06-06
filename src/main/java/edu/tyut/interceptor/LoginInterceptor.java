@@ -1,8 +1,8 @@
 package edu.tyut.interceptor;
 
-import edu.tyut.bean.mgb.Manager;
-import edu.tyut.bean.mgb.Student;
-import edu.tyut.bean.mgb.Teacher;
+import edu.tyut.bean.mbg.Manager;
+import edu.tyut.bean.mbg.Student;
+import edu.tyut.bean.mbg.Teacher;
 import edu.tyut.controller.ConstFlg;
 import edu.tyut.service.ManagerService;
 import edu.tyut.service.StudentService;

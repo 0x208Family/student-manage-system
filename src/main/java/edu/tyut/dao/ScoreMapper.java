@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
-import edu.tyut.bean.mgb.Score;
-import edu.tyut.bean.mgb.ScoreExample;
+import edu.tyut.bean.mbg.Score;
+import edu.tyut.bean.mbg.ScoreExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

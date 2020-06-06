@@ -1,6 +1,6 @@
 package edu.tyut.service;
 
-import edu.tyut.bean.mgb.Province;
+import edu.tyut.bean.mbg.Province;
 import edu.tyut.service.aspect.CriteriaHelper;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package edu.tyut.service.impl;
 
-import edu.tyut.bean.mgb.Ethnic;
+import edu.tyut.bean.mbg.Ethnic;
 import edu.tyut.dao.EthnicMapper;
 import edu.tyut.service.EthnicService;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package edu.tyut.service;
 
-import edu.tyut.bean.mgb.City;
+import edu.tyut.bean.mbg.City;
 import edu.tyut.service.aspect.CriteriaHelper;
 
 import java.util.List;

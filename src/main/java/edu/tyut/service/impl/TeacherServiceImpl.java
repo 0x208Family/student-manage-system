@@ -1,8 +1,8 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
-import edu.tyut.bean.mgb.Teacher;
-import edu.tyut.bean.mgb.TeacherExample;
+import edu.tyut.bean.mbg.Teacher;
+import edu.tyut.bean.mbg.TeacherExample;
 import edu.tyut.dao.TeacherMapper;
 import edu.tyut.service.TeacherService;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package edu.tyut.service.impl;
 
-import edu.tyut.bean.mgb.PoliticalStatus;
-import edu.tyut.bean.mgb.PoliticalStatusExample;
+import edu.tyut.bean.mbg.PoliticalStatus;
+import edu.tyut.bean.mbg.PoliticalStatusExample;
 import edu.tyut.dao.PoliticalStatusMapper;
 import edu.tyut.service.PoliticalStatusService;
 import org.springframework.stereotype.Service;

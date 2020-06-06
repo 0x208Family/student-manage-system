@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
-import edu.tyut.bean.mgb.StudentElectives;
-import edu.tyut.bean.mgb.StudentElectivesExample;
+import edu.tyut.bean.mbg.StudentElectives;
+import edu.tyut.bean.mbg.StudentElectivesExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

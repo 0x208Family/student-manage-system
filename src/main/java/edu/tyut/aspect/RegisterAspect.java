@@ -1,7 +1,7 @@
 package edu.tyut.aspect;
 
 import edu.tyut.bean.RegisterInformation;
-import edu.tyut.bean.mgb.*;
+import edu.tyut.bean.mbg.*;
 import edu.tyut.service.*;
 
 import org.apache.log4j.Logger;

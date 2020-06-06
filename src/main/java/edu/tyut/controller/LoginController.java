@@ -1,8 +1,8 @@
 package edu.tyut.controller;
 
-import edu.tyut.bean.mgb.Manager;
-import edu.tyut.bean.mgb.Student;
-import edu.tyut.bean.mgb.Teacher;
+import edu.tyut.bean.mbg.Manager;
+import edu.tyut.bean.mbg.Student;
+import edu.tyut.bean.mbg.Teacher;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

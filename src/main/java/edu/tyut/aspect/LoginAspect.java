@@ -2,8 +2,8 @@ package edu.tyut.aspect;
 
 import edu.tyut.bean.LoginInformation;
 
-import edu.tyut.bean.mgb.Student;
-import edu.tyut.bean.mgb.Teacher;
+import edu.tyut.bean.mbg.Student;
+import edu.tyut.bean.mbg.Teacher;
 import edu.tyut.controller.ConstFlg;
 import edu.tyut.service.ManagerService;
 import edu.tyut.service.StudentService;
@@ -69,10 +69,11 @@ public class LoginAspect {
                 return true;
             }
         } else if (obj.getClass() == Teacher.class) {
-            if (teacherService.loginHelper(obj.getIdentityKey(), obj.getPassword())) {
+            Teacher teacher = teacherService.queryById(obj.getIdentityKey());
+            if (teacher != null && teacher.getPassword().equals(obj.getPassword())) {
                 req.getSession().setAttribute(ConstFlg.HAS_LOGIN, true);
                 if (remember) {
-                    String cookieValue = SystemUtil.jsonToCookie(SystemUtil.serialization(obj));
+                    String cookieValue = SystemUtil.jsonToCookie(SystemUtil.serialization(teacher));
                     Cookie c = new Cookie(ConstFlg.STUDENT_COOKIE, cookieValue);
                     c.setMaxAge(COOKIE_MAX_AGE);
                     resp.addCookie(c);
