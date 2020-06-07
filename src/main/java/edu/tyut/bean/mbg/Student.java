@@ -3,7 +3,9 @@ package edu.tyut.bean.mbg;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.LoginInformation;
 import edu.tyut.bean.RegisterInformation;
+
 import lombok.ToString;
+
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
@@ -433,7 +435,7 @@ public class Student implements LoginInformation, RegisterInformation {
     }
 
     @Override
-    public String getIdentityKey() {
+    public String getLoginKey() {
         return studentId;
     }
 

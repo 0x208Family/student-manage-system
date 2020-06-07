@@ -182,6 +182,7 @@ public class Teacher implements RegisterInformation, LoginInformation {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
+    @JsonIgnore
     private String root;
 
     /**
@@ -363,7 +364,7 @@ public class Teacher implements RegisterInformation, LoginInformation {
     }
 
     @Override
-    public String getIdentityKey() {
+    public String getLoginKey() {
         return teacherId;
     }
 

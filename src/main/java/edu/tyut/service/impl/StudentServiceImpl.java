@@ -1,6 +1,7 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
+import edu.tyut.bean.LoginInformation;
 import edu.tyut.bean.mbg.Student;
 import edu.tyut.bean.mbg.StudentExample;
 import edu.tyut.dao.StudentMapper;
@@ -45,9 +46,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public boolean loginHelper(String studentId, String password) {
-        sc.andStudentIdEqualTo(studentId);
-        sc.andPasswordEqualTo(password);
+    public boolean loginChecker(LoginInformation l) {
+        sc.andStudentIdEqualTo(l.getLoginKey());
+        sc.andPasswordEqualTo(l.getPassword());
         return studentMapper.selectByExample(se).size() != 0;
     }
 

@@ -1,9 +1,10 @@
 package edu.tyut.service;
 
 import edu.tyut.bean.mbg.Student;
-import edu.tyut.service.aspect.CriteriaHelper;
+import edu.tyut.service.helper.CriteriaHelper;
+import edu.tyut.service.helper.LoginHelper;
 
-public interface StudentService extends CriteriaHelper {
+public interface StudentService extends CriteriaHelper, LoginHelper {
 
     int insert(Student student);
 
@@ -13,5 +14,8 @@ public interface StudentService extends CriteriaHelper {
 
     Student queryById(String studentId);
 
-    boolean loginHelper(String studentId, String password);
+    @Override
+    default Class<Student> serviceFor() {
+        return Student.class;
+    }
 }

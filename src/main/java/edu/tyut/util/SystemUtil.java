@@ -3,7 +3,12 @@ package edu.tyut.util;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import edu.tyut.service.helper.LoginHelper;
 import org.apache.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ServiceLoader;
 
 /**
  * @author TYUT_LH
@@ -60,5 +65,16 @@ public class SystemUtil {
         cookieValue = cookieValue.replaceAll("&", ",");
         cookieValue = cookieValue.replaceAll("#", "\"");
         return cookieValue;
+    }
+
+
+    public static List<Class<?>> getImplementations(Class<?> clazz) {
+        if (clazz.isInterface()) {
+            List<Class<?>> classList = new ArrayList<>();
+            for (Object c : ServiceLoader.load(clazz)) {
+                System.out.println(c);
+            }
+        }
+        return null;
     }
 }

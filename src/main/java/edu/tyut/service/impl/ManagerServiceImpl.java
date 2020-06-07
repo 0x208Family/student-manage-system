@@ -1,6 +1,7 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
+import edu.tyut.bean.LoginInformation;
 import edu.tyut.bean.mbg.Manager;
 import edu.tyut.bean.mbg.ManagerExample;
 import edu.tyut.dao.ManagerMapper;
@@ -27,9 +28,9 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
-    public boolean loginHelper(String name, String password) {
-        mc.andNameEqualTo(name);
-        mc.andPasswordEqualTo(password);
+    public boolean loginChecker(LoginInformation l) {
+        mc.andNameEqualTo(l.getLoginKey());
+        mc.andPasswordEqualTo(l.getPassword());
         return managerMapper.selectByExample(me).size() != 0;
     }
 

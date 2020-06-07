@@ -1,11 +1,15 @@
 package edu.tyut.service;
 
 import edu.tyut.bean.mbg.Manager;
-import edu.tyut.service.aspect.CriteriaHelper;
+import edu.tyut.service.helper.LoginHelper;
+import edu.tyut.service.helper.CriteriaHelper;
 
-public interface ManagerService extends CriteriaHelper {
+public interface ManagerService extends CriteriaHelper, LoginHelper {
 
     Manager queryByPrimaryKey(String managerName);
 
-    boolean loginHelper(String name, String password);
+    @Override
+    default Class<Manager> serviceFor() {
+        return Manager.class;
+    }
 }

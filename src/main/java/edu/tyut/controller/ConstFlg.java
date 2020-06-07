@@ -35,7 +35,23 @@ public interface ConstFlg {
     String MANAGER_COOKIE = "tyutManager";
 
     /**
+     * instructor cookie name
+     *
+     * @see edu.tyut.interceptor.LoginInterceptor
+     * @see edu.tyut.aspect.LoginAspect
+     */
+    String INSTRUCTOR_COOKIE = "tyutInstructor";
+
+    /**
      * indicate whether save login information in client cookie
      */
-    String REMEMBER = "on";
+    String REMEMBER = "remember";
+
+    String STUDENT_HOME = "/stu_home";
+
+    String TEACHER_HOME = "/tea_home";
+
+    String INSTRUCTOR_HOME = "/ins_home";
+
+    String MANAGER_HOME = "/man_home";
 }

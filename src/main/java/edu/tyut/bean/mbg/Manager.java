@@ -1,5 +1,6 @@
 package edu.tyut.bean.mbg;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.LoginInformation;
 import lombok.ToString;
 
@@ -30,6 +31,7 @@ public class Manager implements LoginInformation {
      *
      * @mbg.generated Fri Jun 05 21:19:30 CST 2020
      */
+    @JsonIgnore
     private String root;
 
     /**
@@ -57,7 +59,7 @@ public class Manager implements LoginInformation {
     }
 
     @Override
-    public String getIdentityKey() {
+    public String getLoginKey() {
         return name;
     }
 

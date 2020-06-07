@@ -1,5 +1,6 @@
 package edu.tyut.service.aspect;
 
+import edu.tyut.service.helper.CriteriaHelper;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -17,7 +18,7 @@ public class ServiceAspect {
 
     @Before("execution(* edu.tyut.service.impl.*.*(..)) &&" +
             "!@annotation(edu.tyut.annotation.AOPIgnore) &&" +
-            "!execution(* edu.tyut.service.aspect.CriteriaHelper.*(..))))")
+            "!execution(* edu.tyut.service.helper.CriteriaHelper.*(..))))")
     public void resetStudentExample(JoinPoint joinPoint)  {
         try {
             Object target = joinPoint.getTarget();
