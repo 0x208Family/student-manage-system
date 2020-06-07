@@ -53,7 +53,7 @@
   <!-- ================= base configuration end ================= -->
 
   <!-- ========== transaction manager ============ -->
-  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+  <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
     <property name="dataSource" ref="c3p0-dataSource"/>
   </bean>
   <aop:config>
@@ -72,7 +72,7 @@
   </aop:config>
 
   <!-- configuration transaction advisor -->
-  <tx:advice id="transactionInterceptor">
+  <tx:advice id="transactionInterceptor" transaction-manager="dataSourceTransactionManager">
     <tx:attributes>
       <tx:method name="select*" read-only="true"/>
       <tx:method name="delete*" rollback-for="java.lang.Exception"/>
