@@ -1,11 +1,9 @@
 package edu.tyut.aspect;
 
 import edu.tyut.bean.LoginInformation;
-import edu.tyut.service.ManagerService;
-import edu.tyut.service.StudentService;
-import edu.tyut.service.TeacherService;
 import edu.tyut.service.helper.LoginHelper;
 import edu.tyut.util.SpringContextUtil;
+
 import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

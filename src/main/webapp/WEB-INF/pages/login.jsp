@@ -65,7 +65,8 @@
                             <input type="checkbox" name="remember"><strong> 七天免登录</strong>
                         </div>
                         <div class="form-group">
-                            <p>没有账号？<a href="${pageContext.request.contextPath}/stu_register_page"><strong>去注册</strong></a> </p>
+                            <div class="col-md-6" style="padding-left: 0; display: inline-block"><p>没有账号？<a href="${pageContext.request.contextPath}/stu_register_page"><strong>去注册</strong></a></p></div>
+                            <div class="col-md-6" style="padding-right: 0; text-align: right; display: inline-block; float: right"><a href="#"><strong>忘记密码</strong></a></div>
                         </div>
                         <div class="form-group">
                             <button id="stu_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
@@ -86,7 +87,8 @@
                             <input type="checkbox" name="remember"><strong> 七天免登录</strong>
                         </div>
                         <div class="form-group">
-                            <p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a> </p>
+                            <div class="col-md-6" style="padding-left: 0; display: inline-block"><p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a></p></div>
+                            <div class="col-md-6" style="padding-right: 0; text-align: right; display: inline-block; float: right"><a href="#"><strong>忘记密码</strong></a></div>
                         </div>
                         <div class="form-group">
                             <button id="tea_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
@@ -105,9 +107,6 @@
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="remember"><strong> 七天免登录</strong>
-                        </div>
-                        <div class="form-group">
-                            <p>没有账号？<a href="${pageContext.request.contextPath}/tea_register_page"><strong>去注册</strong></a> </p>
                         </div>
                         <div class="form-group">
                             <button id="ins_login" type="button" class="btn btn-primary btn-lg btn-block">立 即 登 录</button>
