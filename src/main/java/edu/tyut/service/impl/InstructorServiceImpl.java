@@ -1,9 +1,10 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
-import edu.tyut.bean.LoginInformation;
+import edu.tyut.bean.Entity;
+import edu.tyut.bean.SubjectEntity;
 import edu.tyut.bean.mbg.Instructor;
-import edu.tyut.bean.mbg.InstructorExample;
+import edu.tyut.bean.example.InstructorExample;
 import edu.tyut.dao.InstructorMapper;
 import edu.tyut.service.InstructorService;
 import org.springframework.stereotype.Service;
@@ -31,9 +32,9 @@ public class InstructorServiceImpl implements InstructorService {
     }
 
     @Override
-    public boolean loginChecker(LoginInformation l) {
-        ic.andInstructorIdEqualTo(l.getLoginKey());
-        ic.andPasswordEqualTo(l.getPassword());
+    public boolean loginChecker(SubjectEntity obj) {
+        ic.andInstructorIdEqualTo((String) obj.uniqueKey());
+        ic.andPasswordEqualTo(obj.password());
         return instructorMapper.selectByExample(ie).size() != 0;
     }
 

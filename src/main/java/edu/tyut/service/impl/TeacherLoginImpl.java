@@ -1,15 +1,16 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
-import edu.tyut.bean.LoginInformation;
+import edu.tyut.bean.Entity;
+import edu.tyut.bean.SubjectEntity;
 import edu.tyut.bean.mbg.Teacher;
-import edu.tyut.bean.mbg.TeacherExample;
+import edu.tyut.bean.example.TeacherExample;
 import edu.tyut.dao.TeacherMapper;
-import edu.tyut.service.TeacherService;
+import edu.tyut.service.TeacherLogin;
 import org.springframework.stereotype.Service;
 
 @Service("teacherService")
-public class TeacherServiceImpl implements TeacherService {
+public class TeacherLoginImpl implements TeacherLogin {
 
     private final TeacherMapper teacherMapper;
 
@@ -17,7 +18,7 @@ public class TeacherServiceImpl implements TeacherService {
 
     private TeacherExample.Criteria tc;
 
-    public TeacherServiceImpl(TeacherMapper teacherMapper) {
+    public TeacherLoginImpl(TeacherMapper teacherMapper) {
         this.teacherMapper = teacherMapper;
     }
 
@@ -46,9 +47,9 @@ public class TeacherServiceImpl implements TeacherService {
     }
 
     @Override
-    public boolean loginChecker(LoginInformation l) {
-        tc.andTeacherIdEqualTo(l.getLoginKey());
-        tc.andPasswordEqualTo(l.getPassword());
+    public boolean loginChecker(SubjectEntity obj) {
+        tc.andTeacherIdEqualTo((String) obj.uniqueKey());
+        tc.andPasswordEqualTo(obj.password());
         return teacherMapper.selectByExample(te).size() != 0;
     }
 

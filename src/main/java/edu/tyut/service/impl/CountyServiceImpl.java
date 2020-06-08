@@ -1,7 +1,7 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.bean.mbg.County;
-import edu.tyut.bean.mbg.CountyExample;
+import edu.tyut.bean.example.CountyExample;
 import edu.tyut.dao.CountyMapper;
 import edu.tyut.service.CountyService;
 import org.springframework.stereotype.Service;

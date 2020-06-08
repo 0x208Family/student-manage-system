@@ -48,7 +48,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="${pageContext.request.contextPath}/index.jsp"><i class="iconfont iconshouye"></i> 返回首页</a> </li>
                     <li><a href="${pageContext.request.contextPath}/stu_register_page"><i class="iconfont iconzhuce"></i> 学生注册</a> </li>
-                    <li><a href="${pageContext.request.contextPath}/login"><i class="iconfont icondenglu"></i> 登录</a> </li>
+                    <li><a href="${pageContext.request.contextPath}/entity"><i class="iconfont icondenglu"></i> 登录</a> </li>
                 </ul>
             </div>
         </div>
@@ -255,7 +255,7 @@
         modalClickHandler('#captcha_confirm', '#captcha', '#tea_register',
             '${pageContext.request.contextPath}/captcha_check',
             '${pageContext.request.contextPath}/save_teacher',
-            '${pageContext.request.contextPath}/login',
+            '${pageContext.request.contextPath}/entity',
             '#captcha_img', '${pageContext.request.contextPath}/Kaptcha?'
         );
 

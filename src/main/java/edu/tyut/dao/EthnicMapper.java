@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.Ethnic;
-import edu.tyut.bean.mbg.EthnicExample;
+import edu.tyut.bean.example.EthnicExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

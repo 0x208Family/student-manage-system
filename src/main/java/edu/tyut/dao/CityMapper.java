@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.City;
-import edu.tyut.bean.mbg.CityExample;
+import edu.tyut.bean.example.CityExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

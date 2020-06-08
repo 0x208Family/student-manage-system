@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.Cls;
-import edu.tyut.bean.mbg.ClsExample;
+import edu.tyut.bean.example.ClsExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

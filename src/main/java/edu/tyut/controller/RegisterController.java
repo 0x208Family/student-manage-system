@@ -2,6 +2,8 @@ package edu.tyut.controller;
 
 import com.google.code.kaptcha.Constants;
 import edu.tyut.bean.RegisterException;
+import edu.tyut.bean.StudentRegisterAdapter;
+import edu.tyut.bean.TeacherRegisterAdapter;
 import edu.tyut.bean.mbg.City;
 import edu.tyut.bean.mbg.County;
 import edu.tyut.bean.mbg.Student;
@@ -59,21 +61,21 @@ public class RegisterController {
 
     @ResponseBody
     @RequestMapping("/captcha_check")
-    public String captchaCheck(@RequestParam("captcha") String captcha, HttpServletRequest req) {
+    public boolean captchaCheck(@RequestParam("captcha") String captcha, HttpServletRequest req) {
         System.out.println(captcha);
         String excepted = (String) req.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);
-        return excepted.equals(captcha) ? "true" : "false";
+        return excepted.equals(captcha);
     }
 
     @ResponseBody
     @RequestMapping("/stu_id_verify")
-    public Map<String, Boolean> studentIdVerify(Student obj) {
+    public Map<String, Boolean> studentIdVerify(StudentRegisterAdapter obj) {
         return null;
     }
 
     @ResponseBody
     @RequestMapping("/tea_id_verify")
-    public Map<String, Boolean> teacherIdVerify(Teacher obj) {
+    public Map<String, Boolean> teacherIdVerify(TeacherRegisterAdapter obj) {
         return null;
     }
 

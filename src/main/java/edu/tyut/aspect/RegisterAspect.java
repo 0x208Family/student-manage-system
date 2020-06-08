@@ -1,7 +1,11 @@
 package edu.tyut.aspect;
 
-import edu.tyut.bean.RegisterInformation;
-import edu.tyut.bean.mbg.*;
+import edu.tyut.bean.RegisterAdapter;
+import edu.tyut.bean.SubjectEntity;
+import edu.tyut.bean.mbg.City;
+import edu.tyut.bean.mbg.County;
+import edu.tyut.bean.mbg.Province;
+import edu.tyut.bean.mbg.Student;
 import edu.tyut.service.*;
 
 import org.apache.log4j.Logger;
@@ -35,13 +39,13 @@ public class RegisterAspect {
 
     private StudentService studentService;
 
-    private TeacherService teacherService;
+    private TeacherLogin teacherService;
 
     private PoliticalStatusService politicalStatusService;
 
     public RegisterAspect(ProvinceService provinceService, CityService cityService,
                           CountyService countyService, EthnicService ethnicService,
-                          StudentService studentService, TeacherService teacherService,
+                          StudentService studentService, TeacherLogin teacherService,
                           PoliticalStatusService politicalStatusService) {
         this.provinceService = provinceService;
         this.cityService = cityService;
@@ -60,19 +64,19 @@ public class RegisterAspect {
      */
     @Around("execution(* edu.tyut.controller.RegisterController.*Verify(..))")
     public Map<String, Boolean> idVerify(ProceedingJoinPoint pjp) {
-        RegisterInformation info = (RegisterInformation) pjp.getArgs()[0];
+        RegisterAdapter obj = (RegisterAdapter) pjp.getArgs()[0];
         Map<String, Boolean> map = new HashMap<>(1);
         map.put("valid", false);
 
         // validate threshold
-        if (info.getKey().length() != info.keyLength()) {
+        if (((String) obj.uniqueKey()).length() != obj.primaryKeyCheckThresholdLength()) {
             map.put("valid", false);
             return map;
         }
-        if (info.getClass() == Student.class) {
-            map.put("valid", studentService.queryById(info.getKey()) == null);
+        if (obj.registerObject() == Student.class) {
+            map.put("valid", studentService.queryById((String) obj.uniqueKey()) == null);
         } else {
-            map.put("valid", teacherService.queryById(info.getKey()) == null);
+            map.put("valid", teacherService.queryById((String) obj.uniqueKey()) == null);
         }
         return map;
     }
@@ -85,10 +89,10 @@ public class RegisterAspect {
      */
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
     public boolean registerVerify(ProceedingJoinPoint pjp) {
-        RegisterInformation obj = (RegisterInformation) pjp.getArgs()[0];
+        SubjectEntity obj = (SubjectEntity) pjp.getArgs()[0];
         try {
             if (logger.isDebugEnabled()) {
-                logger.debug("正在进行: " + obj.getClass().getName() + " 对象的数据校验");
+                logger.debug("正在进行: " + obj.uniqueKey() + " 对象的数据校验");
             }
             pjp.proceed(pjp.getArgs());
             if (logger.isDebugEnabled()) {

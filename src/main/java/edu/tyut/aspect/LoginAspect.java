@@ -1,6 +1,6 @@
 package edu.tyut.aspect;
 
-import edu.tyut.bean.LoginInformation;
+import edu.tyut.bean.LoginAdapter;
 import edu.tyut.service.helper.LoginHelper;
 import edu.tyut.util.SpringContextUtil;
 
@@ -23,14 +23,18 @@ public class LoginAspect {
 
     @Around("execution(* edu.tyut.controller.LoginController.check(..))")
     public boolean checkHandler(ProceedingJoinPoint pjp) {
-        LoginInformation info = (LoginInformation) pjp.getArgs()[0];
+        LoginAdapter adapter = (LoginAdapter) pjp.getArgs()[0];
         Map<String, LoginHelper> serviceMap = SpringContextUtil.getBeanOfType(LoginHelper.class);
+
+        System.out.println(adapter.homePath());
+        System.out.println(adapter.cookieName());
+        System.out.println(adapter.cookieValue());
         try {
             for (LoginHelper helper : serviceMap.values()) {
-                if (info.getClass() == helper.serviceFor()) {
-                    if (helper.loginChecker(info)) {
+                if (adapter.loginObject() == helper.serviceFor()) {
+                    if (helper.loginChecker(adapter)) {
                         if ((boolean) pjp.proceed(pjp.getArgs())) {
-                            logger.info("用户：[" + info.getLoginKey() + "]登录成功");
+                            logger.info("用户：[" + adapter.uniqueKey() + "]登录成功");
                             return true;
                         }
                     }

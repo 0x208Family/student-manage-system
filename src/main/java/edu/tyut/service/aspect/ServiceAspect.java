@@ -33,7 +33,7 @@ public class ServiceAspect {
             }
             create.invoke(target);
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            logger.error("在清理和创建example时出现异常", e.getCause());
+            logger.error("在清理和创建example时出现异常: " + e.getMessage(), e.getCause());
         }
     }
 }

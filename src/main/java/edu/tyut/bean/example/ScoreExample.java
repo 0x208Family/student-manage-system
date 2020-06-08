@@ -1,4 +1,4 @@
-package edu.tyut.bean.mbg;
+package edu.tyut.bean.example;
 
 import java.util.ArrayList;
 import java.util.List;

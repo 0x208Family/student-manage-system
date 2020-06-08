@@ -8,7 +8,7 @@ import edu.tyut.controller.ConstFlg;
 import edu.tyut.service.InstructorService;
 import edu.tyut.service.ManagerService;
 import edu.tyut.service.StudentService;
-import edu.tyut.service.TeacherService;
+import edu.tyut.service.TeacherLogin;
 import edu.tyut.util.SystemUtil;
 
 import org.apache.log4j.Logger;
@@ -26,13 +26,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     private StudentService studentService;
 
-    private TeacherService teacherService;
+    private TeacherLogin teacherService;
 
     private InstructorService instructorService;
 
     private ManagerService managerService;
 
-    public LoginInterceptor(StudentService studentService, TeacherService teacherService,
+    public LoginInterceptor(StudentService studentService, TeacherLogin teacherService,
                             InstructorService instructorService, ManagerService managerService) {
         this.studentService = studentService;
         this.teacherService = teacherService;

@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.ElectiveScore;
-import edu.tyut.bean.mbg.ElectiveScoreExample;
+import edu.tyut.bean.example.ElectiveScoreExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

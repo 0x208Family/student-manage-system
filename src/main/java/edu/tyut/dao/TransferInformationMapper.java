@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.TransferInformation;
-import edu.tyut.bean.mbg.TransferInformationExample;
+import edu.tyut.bean.example.TransferInformationExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

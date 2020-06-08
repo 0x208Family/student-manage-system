@@ -1,5 +1,6 @@
 package edu.tyut.service;
 
+import edu.tyut.bean.Entity;
 import edu.tyut.bean.mbg.Manager;
 import edu.tyut.service.helper.LoginHelper;
 import edu.tyut.service.helper.CriteriaHelper;

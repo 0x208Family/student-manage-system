@@ -2,7 +2,7 @@ package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
 import edu.tyut.bean.mbg.City;
-import edu.tyut.bean.mbg.CityExample;
+import edu.tyut.bean.example.CityExample;
 import edu.tyut.dao.CityMapper;
 import edu.tyut.service.CityService;
 import org.springframework.stereotype.Service;

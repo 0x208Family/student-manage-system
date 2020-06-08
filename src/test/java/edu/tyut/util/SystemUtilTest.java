@@ -7,8 +7,4 @@ import static org.junit.Assert.*;
 
 public class SystemUtilTest {
 
-    @Test
-    public void getImplementations() {
-        SystemUtil.getImplementations(LoginHelper.class);
-    }
 }

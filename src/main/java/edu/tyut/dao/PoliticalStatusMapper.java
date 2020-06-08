@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.PoliticalStatus;
-import edu.tyut.bean.mbg.PoliticalStatusExample;
+import edu.tyut.bean.example.PoliticalStatusExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

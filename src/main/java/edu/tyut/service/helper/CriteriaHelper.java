@@ -1,7 +1,5 @@
 package edu.tyut.service.helper;
 
-import edu.tyut.annotation.AOPIgnore;
-
 public interface CriteriaHelper {
 
     String CLEAR_SIGNATURE = "clearCriteria";

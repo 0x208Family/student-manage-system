@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.Manager;
-import edu.tyut.bean.mbg.ManagerExample;
+import edu.tyut.bean.example.ManagerExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

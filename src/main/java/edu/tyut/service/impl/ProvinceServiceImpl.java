@@ -1,7 +1,7 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.bean.mbg.Province;
-import edu.tyut.bean.mbg.ProvinceExample;
+import edu.tyut.bean.example.ProvinceExample;
 import edu.tyut.dao.ProvinceMapper;
 import edu.tyut.service.ProvinceService;
 

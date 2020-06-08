@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.RewardAndPunishment;
-import edu.tyut.bean.mbg.RewardAndPunishmentExample;
+import edu.tyut.bean.example.RewardAndPunishmentExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

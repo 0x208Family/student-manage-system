@@ -1,7 +1,9 @@
 package edu.tyut.service.helper;
 
 
+import edu.tyut.bean.Entity;
+
 public interface ServiceMapping {
 
-    Class<?> serviceFor();
+    Class<? extends Entity> serviceFor();
 }

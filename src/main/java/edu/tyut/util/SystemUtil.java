@@ -1,14 +1,12 @@
 package edu.tyut.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.tyut.service.helper.LoginHelper;
 import org.apache.log4j.Logger;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ServiceLoader;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author TYUT_LH
@@ -67,14 +65,11 @@ public class SystemUtil {
         return cookieValue;
     }
 
+    public static String URLEncoder(String s) {
+        return URLEncoder.encode(s, StandardCharsets.UTF_8);
+    }
 
-    public static List<Class<?>> getImplementations(Class<?> clazz) {
-        if (clazz.isInterface()) {
-            List<Class<?>> classList = new ArrayList<>();
-            for (Object c : ServiceLoader.load(clazz)) {
-                System.out.println(c);
-            }
-        }
-        return null;
+    public static String URLDecoder(String s) {
+        return URLDecoder.decode(s, StandardCharsets.UTF_8);
     }
 }

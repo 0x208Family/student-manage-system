@@ -1,7 +1,7 @@
 package edu.tyut.dao;
 
 import edu.tyut.bean.mbg.County;
-import edu.tyut.bean.mbg.CountyExample;
+import edu.tyut.bean.example.CountyExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
