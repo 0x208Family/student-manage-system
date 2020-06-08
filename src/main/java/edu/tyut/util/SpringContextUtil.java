@@ -1,6 +1,5 @@
 package edu.tyut.util;
 
-import edu.tyut.service.helper.LoginHelper;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

@@ -1,16 +1,16 @@
 package edu.tyut.service.impl;
 
 import edu.tyut.annotation.AOPIgnore;
-import edu.tyut.bean.Entity;
 import edu.tyut.bean.SubjectEntity;
 import edu.tyut.bean.mbg.Teacher;
 import edu.tyut.bean.example.TeacherExample;
 import edu.tyut.dao.TeacherMapper;
-import edu.tyut.service.TeacherLogin;
+import edu.tyut.service.TeacherService;
+
 import org.springframework.stereotype.Service;
 
 @Service("teacherService")
-public class TeacherLoginImpl implements TeacherLogin {
+public class TeacherServiceImpl implements TeacherService {
 
     private final TeacherMapper teacherMapper;
 
@@ -18,7 +18,7 @@ public class TeacherLoginImpl implements TeacherLogin {
 
     private TeacherExample.Criteria tc;
 
-    public TeacherLoginImpl(TeacherMapper teacherMapper) {
+    public TeacherServiceImpl(TeacherMapper teacherMapper) {
         this.teacherMapper = teacherMapper;
     }
 

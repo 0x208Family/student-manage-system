@@ -2,6 +2,7 @@ package edu.tyut.bean;
 
 import edu.tyut.bean.mbg.Student;
 import edu.tyut.controller.ConstFlg;
+import edu.tyut.util.SystemUtil;
 
 /**
  * @author TYUT_LH
@@ -22,7 +23,12 @@ public class StudentLoginAdapter extends LoginAdapter {
 
     @Override
     public String cookieName() {
-        return studentId;
+        return ConstFlg.STUDENT_COOKIE;
+    }
+
+    @Override
+    public String cookieValue() {
+        return SystemUtil.URLEncoder(SystemUtil.serialization(this));
     }
 
     @Override
@@ -32,5 +38,9 @@ public class StudentLoginAdapter extends LoginAdapter {
 
     public void setStudentId(String studentId) {
         this.studentId = studentId;
+    }
+
+    public String getStudentId() {
+        return studentId;
     }
 }

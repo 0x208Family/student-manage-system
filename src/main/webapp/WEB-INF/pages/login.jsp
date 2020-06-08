@@ -117,7 +117,7 @@
                     <form id="man_form" method="post" action="${pageContext.request.contextPath}/man_check">
                         <div class="form-group">
                             <label for="managerId">管理员编号</label>
-                            <input type="text" class="form-control" id="managerId" name="name" placeholder="管理员编号">
+                            <input type="text" class="form-control" id="managerId" name="managerId" placeholder="管理员编号">
                         </div>
                         <div class="form-group">
                             <label for="manager_password">密码</label>

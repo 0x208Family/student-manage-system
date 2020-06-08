@@ -45,26 +45,6 @@ public class SystemUtil {
         return null;
     }
 
-    public static String jsonToCookie(String json) {
-        if (json == null) {
-            logger.warn("json value is null");
-            return null;
-        }
-        json = json.replaceAll(",", "&");
-        json = json.replaceAll("\"", "#");
-        return json;
-    }
-
-    public static String cookieToJson(String cookieValue) {
-        if (cookieValue == null) {
-            logger.warn("cookie value is null");
-            return null;
-        }
-        cookieValue = cookieValue.replaceAll("&", ",");
-        cookieValue = cookieValue.replaceAll("#", "\"");
-        return cookieValue;
-    }
-
     public static String URLEncoder(String s) {
         return URLEncoder.encode(s, StandardCharsets.UTF_8);
     }

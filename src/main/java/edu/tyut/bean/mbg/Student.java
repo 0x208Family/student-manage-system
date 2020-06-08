@@ -32,7 +32,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "姓名不能为空")
     @Length(min = 2, max = 4, message = "姓名不正确")
     private String name;
@@ -44,7 +44,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "性别不能为空")
     private String sex;
 
@@ -55,7 +55,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "政治状态不能为空")
     private String politicalStatus;
 
@@ -66,7 +66,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "籍贯不能为空")
     private String nation;
 
@@ -77,7 +77,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @Length(min = 15, max = 18, message = "身份证错误")
     @NotBlank(message = "身份证不能为空")
     @Pattern(regexp = "^[1-9]\\d{5}(18|19|20|(3\\d))\\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$",
@@ -91,7 +91,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "辅导也姓名不能为空")
     @Length(min = 2, max = 4, message = "错误的姓名")
     private String instructorName;
@@ -116,7 +116,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     private Date birth;
 
     /**
@@ -126,7 +126,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "民族不能为空")
     private String ethnic;
 
@@ -137,7 +137,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     private Date admissionDate;
 
     /**
@@ -147,7 +147,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "学院不能为空")
     private String academy;
 
@@ -158,7 +158,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "班级不能为空")
     private String cls;
 
@@ -169,7 +169,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "宿舍号不能为空")
     private String dormitoryId;
 
@@ -180,7 +180,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "号码不能为空")
     @Length(max = 11)
     @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$",
@@ -194,7 +194,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "号码不能为空")
     @Length(max = 11)
     @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$",
@@ -208,7 +208,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "省份不能为空")
     private String province;
 
@@ -219,7 +219,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "城市不能为空")
     private String city;
 
@@ -230,7 +230,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     private String county;
 
     /**
@@ -240,7 +240,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     private String addressDetail;
 
     /**
@@ -250,7 +250,7 @@ public class Student implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 22:25:24 CST 2020
      */
-    @JsonIgnore
+    
     private String remark;
 
     /**

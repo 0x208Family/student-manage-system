@@ -15,8 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class LoginController {
 
-    private static final int COOKIE_MAX_AGE = 604800;
-
     @RequestMapping("/login")
     public String login() {
         return "login";

@@ -50,7 +50,7 @@
   <!-- interceptor -->
   <mvc:interceptors>
     <mvc:interceptor>
-      <mvc:mapping path="/entity"/>
+      <mvc:mapping path="/login"/>
       <bean class="edu.tyut.interceptor.LoginInterceptor"></bean>
     </mvc:interceptor>
   </mvc:interceptors>

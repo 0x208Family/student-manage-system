@@ -39,13 +39,13 @@ public class RegisterAspect {
 
     private StudentService studentService;
 
-    private TeacherLogin teacherService;
+    private TeacherService teacherService;
 
     private PoliticalStatusService politicalStatusService;
 
     public RegisterAspect(ProvinceService provinceService, CityService cityService,
                           CountyService countyService, EthnicService ethnicService,
-                          StudentService studentService, TeacherLogin teacherService,
+                          StudentService studentService, TeacherService teacherService,
                           PoliticalStatusService politicalStatusService) {
         this.provinceService = provinceService;
         this.cityService = cityService;
@@ -75,7 +75,7 @@ public class RegisterAspect {
         }
         if (obj.registerObject() == Student.class) {
             map.put("valid", studentService.queryById((String) obj.uniqueKey()) == null);
-        } else {
+        } else { //teacher
             map.put("valid", teacherService.queryById((String) obj.uniqueKey()) == null);
         }
         return map;
@@ -88,7 +88,7 @@ public class RegisterAspect {
      * @return    true或false对应的字符串
      */
     @Around("execution(* edu.tyut.controller.RegisterController.save*(..))")
-    public boolean registerVerify(ProceedingJoinPoint pjp) {
+    public boolean save(ProceedingJoinPoint pjp) {
         SubjectEntity obj = (SubjectEntity) pjp.getArgs()[0];
         try {
             if (logger.isDebugEnabled()) {

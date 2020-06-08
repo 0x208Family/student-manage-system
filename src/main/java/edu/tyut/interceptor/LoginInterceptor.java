@@ -1,14 +1,14 @@
 package edu.tyut.interceptor;
 
-import edu.tyut.bean.mbg.Instructor;
-import edu.tyut.bean.mbg.Manager;
-import edu.tyut.bean.mbg.Student;
-import edu.tyut.bean.mbg.Teacher;
+import edu.tyut.bean.InstructorLoginAdapter;
+import edu.tyut.bean.ManagerLoginAdapter;
+import edu.tyut.bean.StudentLoginAdapter;
+import edu.tyut.bean.TeacherLoginAdapter;
 import edu.tyut.controller.ConstFlg;
 import edu.tyut.service.InstructorService;
 import edu.tyut.service.ManagerService;
 import edu.tyut.service.StudentService;
-import edu.tyut.service.TeacherLogin;
+import edu.tyut.service.TeacherService;
 import edu.tyut.util.SystemUtil;
 
 import org.apache.log4j.Logger;
@@ -26,13 +26,13 @@ public class LoginInterceptor implements HandlerInterceptor {
 
     private StudentService studentService;
 
-    private TeacherLogin teacherService;
+    private TeacherService teacherService;
 
     private InstructorService instructorService;
 
     private ManagerService managerService;
 
-    public LoginInterceptor(StudentService studentService, TeacherLogin teacherService,
+    public LoginInterceptor(StudentService studentService, TeacherService teacherService,
                             InstructorService instructorService, ManagerService managerService) {
         this.studentService = studentService;
         this.teacherService = teacherService;
@@ -54,42 +54,46 @@ public class LoginInterceptor implements HandlerInterceptor {
             for (Cookie c : request.getCookies()) {
                 switch (c.getName()) {
                     case ConstFlg.STUDENT_COOKIE:
-                        String stuJson = SystemUtil.cookieToJson(c.getValue());
-                        Student stu = SystemUtil.deserialization(stuJson, Student.class);
-                        if (stu != null && studentService.loginChecker(stu)) {
-                            request.getRequestDispatcher(ConstFlg.STUDENT_HOME).forward(request, response);
-                            logger.info("用户：[" + stu.getStudentId() + "] 登录成功：方式：cookie");
-                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, ConstFlg.STUDENT_HOME);
+                        String stuJson = SystemUtil.URLDecoder(c.getValue());
+                        StudentLoginAdapter student = SystemUtil.deserialization(stuJson, StudentLoginAdapter.class);
+                        if (student != null && studentService.loginChecker(student)) {
+                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, student.homePath());
+                            request.getRequestDispatcher(student.homePath()).forward(request, response);
+                            logger.info("用户：[" + student.uniqueKey() + "]登录成功，方式：cookie");
+                            return true;
                         }
-                        return true;
+                        break;
                     case ConstFlg.TEACHER_COOKIE:
-                        String teaJson = SystemUtil.cookieToJson(c.getValue());
-                        Teacher tea = SystemUtil.deserialization(teaJson, Teacher.class);
-                        if (tea != null && teacherService.loginChecker(tea)) {
-                            request.getRequestDispatcher(ConstFlg.TEACHER_HOME).forward(request, response);
-                            logger.info("用户：[" + tea.getTeacherId() + "] 登录成功：方式：cookie");
-                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, ConstFlg.TEACHER_HOME);
+                        String teaJson = SystemUtil.URLDecoder(c.getValue());
+                        TeacherLoginAdapter teacher = SystemUtil.deserialization(teaJson, TeacherLoginAdapter.class);
+                        if (teacher != null && teacherService.loginChecker(teacher)) {
+                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, teacher.homePath());
+                            request.getRequestDispatcher(teacher.homePath()).forward(request, response);
+                            logger.info("用户：[" + teacher.uniqueKey() + "]登录成功，方式：cookie");
+                            return true;
                         }
-                        return true;
+                        break;
                     case ConstFlg.INSTRUCTOR_COOKIE:
-                        String insJson = SystemUtil.cookieToJson(c.getValue());
-                        Instructor ins = SystemUtil.deserialization(insJson, Instructor.class);
-                        if (ins != null && instructorService.loginChecker(ins)) {
-                            request.getRequestDispatcher(ConstFlg.INSTRUCTOR_HOME).forward(request, response);
-                            logger.info("用户：[" + ins.getName() + "] 登录成功：方式：cookie");
-                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, ConstFlg.INSTRUCTOR_HOME);
+                        String insJson = SystemUtil.URLDecoder(c.getValue());
+                        InstructorLoginAdapter instructor = SystemUtil.deserialization(insJson, InstructorLoginAdapter.class);
+                        if (instructor != null && instructorService.loginChecker(instructor)) {
+                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, instructor.homePath());
+                            request.getRequestDispatcher(instructor.homePath()).forward(request, response);
+                            logger.info("用户：[" + instructor.uniqueKey() + "]登录成功，方式：cookie");
+                            return true;
                         }
-                        return true;
+                        break;
                     case ConstFlg.MANAGER_COOKIE:
-                        String manJson = SystemUtil.cookieToJson(c.getValue());
-                        Manager man = SystemUtil.deserialization(manJson, Manager.class);
-                        if (man != null && managerService.loginChecker(man)) {
-                            request.getRequestDispatcher(ConstFlg.MANAGER_HOME).forward(request, response);
-                            logger.info("用户：[" + man.getName() + "] 登录成功：方式：cookie");
-                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, ConstFlg.MANAGER_HOME);
+                        String manJson = SystemUtil.URLDecoder(c.getValue());
+                        ManagerLoginAdapter manager = SystemUtil.deserialization(manJson, ManagerLoginAdapter.class);
+                        if (manager != null && managerService.loginChecker(manager)) {
+                            request.getSession().setAttribute(ConstFlg.HAS_LOGIN, manager.homePath());
+                            request.getRequestDispatcher(manager.homePath()).forward(request, response);
+                            logger.info("用户：[" + manager.uniqueKey() + "]登录成功，方式：cookie");
+                            return true;
                         }
-                        return true;
-                }
+                        break;
+                } // end of switch
             }
         }
         if (logger.isInfoEnabled()) {
