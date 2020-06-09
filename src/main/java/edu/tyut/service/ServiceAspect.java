@@ -1,4 +1,4 @@
-package edu.tyut.service.aspect;
+package edu.tyut.service;
 
 import edu.tyut.service.helper.CriteriaHelper;
 

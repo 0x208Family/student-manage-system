@@ -1,6 +1,5 @@
 package edu.tyut.bean.mbg;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.SubjectEntity;
 import lombok.ToString;
 
@@ -31,7 +30,7 @@ public class Manager implements SubjectEntity {
      *
      * @mbg.generated Fri Jun 05 21:19:30 CST 2020
      */
-    @JsonIgnore
+    
     private String root;
 
     /**

@@ -2,10 +2,7 @@ package edu.tyut.aspect;
 
 import edu.tyut.bean.RegisterAdapter;
 import edu.tyut.bean.SubjectEntity;
-import edu.tyut.bean.mbg.City;
-import edu.tyut.bean.mbg.County;
-import edu.tyut.bean.mbg.Province;
-import edu.tyut.bean.mbg.Student;
+import edu.tyut.bean.mbg.*;
 import edu.tyut.service.*;
 
 import org.apache.log4j.Logger;

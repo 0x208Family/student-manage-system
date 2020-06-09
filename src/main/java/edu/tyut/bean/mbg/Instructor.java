@@ -1,6 +1,5 @@
 package edu.tyut.bean.mbg;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.SubjectEntity;
 import lombok.ToString;
 
@@ -22,7 +21,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String name;
 
     /**
@@ -32,7 +31,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String identityNum;
 
     /**
@@ -42,7 +41,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String sex;
 
     /**
@@ -52,7 +51,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String academy;
 
     /**
@@ -62,7 +61,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String politicalStatus;
 
     /**
@@ -72,7 +71,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String nation;
 
     /**
@@ -91,7 +90,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String phone;
 
     /**
@@ -101,7 +100,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String ethnic;
 
     /**
@@ -111,7 +110,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String province;
 
     /**
@@ -121,7 +120,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String city;
 
     /**
@@ -131,7 +130,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String county;
 
     /**
@@ -141,7 +140,7 @@ public class Instructor implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 21:20:14 CST 2020
      */
-    @JsonIgnore
+    
     private String addressDetail;
 
     /**

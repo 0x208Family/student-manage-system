@@ -1,6 +1,5 @@
 package edu.tyut.bean.mbg;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import edu.tyut.bean.SubjectEntity;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
@@ -31,7 +30,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "姓名不能为空")
     @Length(min = 2, max = 4, message = "姓名不正确")
     private String name;
@@ -43,7 +42,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @Length(min = 15, max = 18, message = "身份证错误")
     @NotBlank(message = "身份证不能为空")
     @Pattern(regexp = "^[1-9]\\d{5}(18|19|20|(3\\d))\\d{2}((0[1-9])|(1[0-2]))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$",
@@ -57,7 +56,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "性别不能为空")
     private String sex;
 
@@ -68,7 +67,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "学院不能为空")
     private String academy;
 
@@ -79,7 +78,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "政治状态不能为空")
     private String politicalStatus;
 
@@ -90,7 +89,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "籍贯不能为空")
     private String nation;
 
@@ -114,7 +113,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "号码不能为空")
     @Length(max = 11)
     @Pattern(regexp = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(18[0,5-9]))\\d{8}$",
@@ -128,7 +127,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "民族不能为空")
     private String ethnic;
 
@@ -139,7 +138,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "省份不能为空")
     private String province;
 
@@ -150,7 +149,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     @NotBlank(message = "城市不能为空")
     private String city;
 
@@ -161,7 +160,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     private String county;
 
     /**
@@ -171,7 +170,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     private String addressDetail;
 
     /**
@@ -181,7 +180,7 @@ public class Teacher implements SubjectEntity {
      *
      * @mbg.generated Sat Jun 06 09:58:20 CST 2020
      */
-    @JsonIgnore
+    
     private String root;
 
     /**
