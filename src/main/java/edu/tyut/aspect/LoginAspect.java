@@ -39,10 +39,10 @@ public class LoginAspect {
             for (LoginHelper helper : serviceMap.values()) {
                 if (adapter.loginObject() == helper.serviceFor()) {
                     if (helper.loginChecker(adapter)) {
-                        // add information in session
+                        // add information to session
                         req.getSession().setAttribute(ConstFlg.HAS_LOGIN, adapter.homePath());
 
-                        // add cookie
+                        // add cookie to response
                         if (req.getParameter(ConstFlg.REMEMBER) != null) {
                             Cookie c = new Cookie(adapter.cookieName(), adapter.cookieValue());
                             c.setMaxAge(COOKIE_MAX_AGE);
